@@ -1,2 +1,4 @@
-# Data-structures-and-algorihms
-Created by Prit Kanadiya 
+#DSA 
+#Contents :-
+1) Stacks 
+2) Graphs
