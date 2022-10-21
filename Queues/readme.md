@@ -12,13 +12,13 @@ A queue is defined as a linear data structure that is open at both ends and the 
 3) IsEmpty() : To check if queue is empty
 4) IsFull() : To check if queue is full 
 
-##Types of Queue :-
+## Types of Queue :-
 1) Simple Queue
 2) Circular Queue
 3) Priority Queue (PQ)
 4) Double ended Queue (DEQUE)
 
-##Implenting Queues
+## Implenting Queues
 There are two methods to implement queues :-
 1) Using arrays 
 2) Using Linked List 
