@@ -1,4 +1,8 @@
-/* Here , we are implementing a queue using arrays , by using a single pointer only */
+/* Here , we are implementing a queue using arrays , by using a single pointer only
+Insertion - O(1)
+Deletion - O(n)
+The drawback of using only a single pointer is that deletion takes O(n) time*/
+
 #include <iostream>
 #define MAX_SIZE 10
 
@@ -21,15 +25,22 @@ public:
 /* to insert an element to the queue*/
 void Queue ::enqueue(int element)
 {
-    if (rear == NULL) // if the queue is empty , and the element is first to be inserted
+    if (!isFull()) //insert element only if queue is not full
     {
-        rear = queue; // points to the first element in queue
-        queue[0] = element;
+        if (rear == NULL) // if the queue is empty , and the element is first to be inserted
+        {
+            rear = queue; // points to the first element in queue
+            queue[0] = element;
+        }
+        else
+        {
+            rear++;          // increment the pointer to next position
+            *rear = element; // change the value of next position
+        }
     }
     else
     {
-        rear++;          // increment the pointer to next position
-        *rear = element; // change the value of next position
+        cout << "queue is full!";
     }
 }
 // end of function
@@ -37,12 +48,12 @@ void Queue ::enqueue(int element)
 /* to insert an element to the queue*/
 void Queue ::dequeue()
 {
-    if (rear == &queue[0])
+    if (rear == &queue[0]) //considering the case if only one element is present
     {
-        cout << queue[0] ;
-        rear == NULL ;
+        cout << queue[0] << "\n";
+        rear = NULL;
     }
-    if (!isEmpty())
+    else if (!isEmpty()) //we check if queue is not empty
     {
         cout << queue[0] << "\n";
 
@@ -74,7 +85,7 @@ void Queue ::display()
     }
     else
     {
-        cout << "The queue is empty!";
+        cout << "The queue is empty!\n";
     }
 }
 // end of function
@@ -98,18 +109,36 @@ bool Queue ::isEmpty()
 }
 // end of function
 
+// returns true if queue is full. We generally use this function in dequeue() to check during deletion
+bool Queue ::isFull()
+{
+    if (rear == &queue[MAX_SIZE - 1])
+    {
+        return false; // we return false since the queue had 1 element left and is not yet empty
+    }
+    else
+    {
+        return false; // for all other cases , queue is not empty
+    }
+}
+// end of function
+
 int main()
 {
     class Queue Queue1; // creating an object Queue1 of class Queue
-    // Queue1.enqueue(34);
-    // Queue1.enqueue(55);
-    // Queue1.enqueue(10);
-    Queue1.enqueue(99);
-    // Queue1.display();
+
+    Queue1.enqueue(34);
+    Queue1.enqueue(55);
+    Queue1.enqueue(10);
+    Queue1.display();
     Queue1.dequeue();
-    // Queue1.dequeue();
+    Queue1.display();
+    Queue1.dequeue();
+    Queue1.display();
+    Queue1.dequeue();
     Queue1.display();
 
     return 0;
 }
 // end of main
+//end of program
