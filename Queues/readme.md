@@ -1,12 +1,12 @@
-#Introduction
+# Introduction
 A queue is defined as a linear data structure that is open at both ends and the operations are performed in First In First Out (FIFO) order. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue).
 
-##data we need :-
+## data we need :-
 1) space for storing elements
 2) Front pointer - usually for deletion
 3) Rear pointer - usually for insertion 
 
-##Basic operations on Queue :-
+## Basic operations on Queue :-
 1) Enqueue() : To insert an element to queue
 2) Dequeue() : To delete an element from to queue
 3) IsEmpty() : To check if queue is empty
