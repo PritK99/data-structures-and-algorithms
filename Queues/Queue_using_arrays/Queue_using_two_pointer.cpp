@@ -1,9 +1,9 @@
-/* Here , we are implementing a queue using arrays , by using a single pointer only
+/* Here , we are implementing a queue using arrays , by using two pointers
 Insertion - O(1)
 Deletion - O(1)*/
 
 #include <iostream>
-#define MAX_SIZE 2
+#define MAX_SIZE 10
 
 using namespace std;
 
