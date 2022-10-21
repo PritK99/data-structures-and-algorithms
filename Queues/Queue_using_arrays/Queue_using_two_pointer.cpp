@@ -1,10 +1,9 @@
 /* Here , we are implementing a queue using arrays , by using a single pointer only
 Insertion - O(1)
-Deletion - O(n)
-The drawback of using only a single pointer is that deletion takes O(n) time*/
+Deletion - O(1)*/
 
 #include <iostream>
-#define MAX_SIZE 10
+#define MAX_SIZE 2
 
 using namespace std;
 
@@ -12,7 +11,8 @@ class Queue
 {
 private:
     int queue[MAX_SIZE];
-    int *rear = NULL; // initially , the pointer points to NULL
+    int *rear = NULL; 
+    int *front = NULL ; // initially , the pointers points to NULL
 
 public:
     void enqueue(int element);
@@ -30,6 +30,7 @@ void Queue ::enqueue(int element)
         if (rear == NULL) // if the queue is empty , and the element is first to be inserted
         {
             rear = queue; // points to the first element in queue
+            front = queue;
             queue[0] = element;
         }
         else
@@ -48,21 +49,11 @@ void Queue ::enqueue(int element)
 /* to insert an element to the queue*/
 void Queue ::dequeue()
 {
-    if (rear == &queue[0]) //considering the case if only one element is present
+    if (!isEmpty()) //we check if queue is not empty
     {
-        cout << queue[0] << "\n";
-        rear = NULL;
-    }
-    else if (!isEmpty()) //we check if queue is not empty
-    {
-        cout << queue[0] << "\n"; //print the first element i.e. 0th index in array
-
-        for (int i = 0; &queue[i] < rear; i++) // here , we go till the second last element of queue
-        {
-            queue[i] = queue[i + 1];
-        }
-
-        rear--; // decrementing the pointer to previous position
+        cout << *front << "\n";
+        front++; // incrementing the front the pointer to previous position
+        //for dequeue , we first delete the element to which the front is pointing , then we increment front
     }
     else
     {
@@ -74,12 +65,12 @@ void Queue ::dequeue()
 /*to display the entire queue*/
 void Queue ::display()
 {
-    if (rear != NULL)
+    if (!isEmpty())
     {
         cout << "The elements of queue are : ";
-        for (int i = 0; &queue[i] <= rear; i++) // here , we print the element in queue till address of queue's last element matches with address at which rear points
+        for (int i = 0; front + i <= rear ; i++) // here , we print the element in queue till address of queue's last element matches with address at which rear points
         {
-            cout << queue[i] << " ";
+            cout << *(front+i) << " ";
         }
         cout << "\n";
     }
@@ -90,31 +81,24 @@ void Queue ::display()
 }
 // end of function
 
-// returns true if queue is empty. We generally use this function in dequeue() to check during deletion
-bool Queue ::isEmpty()
+bool Queue ::isFull()
 {
-    if (rear == &queue[0])
+    if (rear >= &queue[MAX_SIZE - 1])
     {
-        rear = NULL;
-        return false; // we return false since the queue had 1 element left and is not yet empty
-    }
-    else if (rear == NULL)
-    {
-        return true;
+        return true ; // we return false since the queue had 1 element left and is not yet empty
     }
     else
     {
         return false; // for all other cases , queue is not empty
     }
 }
-// end of function
 
-// returns true if queue is full. We generally use this function in dequeue() to check during deletion
-bool Queue ::isFull()
+// returns true if queue is empty. We generally use this function in dequeue() to check during deletion
+bool Queue ::isEmpty()
 {
-    if (rear == &queue[MAX_SIZE - 1])
+    if (rear < front || rear == NULL) //when the queue is empty , ether the front pointer is ahead of the rear pointer , or the rear pointer is null
     {
-        return true; // we return true since the rear already points at last element and there is no space ahead
+        return true;
     }
     else
     {
@@ -131,12 +115,12 @@ int main()
     Queue1.enqueue(55);
     Queue1.enqueue(10);
     Queue1.display();
-    Queue1.dequeue();
-    Queue1.display();
-    Queue1.dequeue();
-    Queue1.display();
-    Queue1.dequeue();
-    Queue1.display();
+    // Queue1.dequeue();
+    // Queue1.display();
+    // Queue1.dequeue();
+    // Queue1.display();
+    // Queue1.dequeue();
+    // Queue1.display();
 
     return 0;
 }
