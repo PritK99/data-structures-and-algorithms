@@ -23,3 +23,12 @@ There are two methods to implement queues
 1) Using arrays 
 2) Using Linked List 
 
+# Circular Queues
+
+# DEQueues 
+Double-Ended-Queues (DEQueues) are a type of queue, which do not follow FIFO exactly.In simple queues, front is used to delete an element and rear is used to insert an element. However, Double-Ended-Queue allow insertion and deletion at both ends , front and rear.
+Further subtypes of DEQueue :-
+1) Input-Resticted-Dequeue - Insertion only takes place at rear end, while deletion can take place at either of ends
+2) Output-Resticted-Dequeue - Deletion only takes place at front end, while insertion can take place at either of ends
+
+# Priority Queues
