@@ -1,6 +1,8 @@
 # Data Structures and Algorithm Saga 
 Data structures in its simplest form, refers to methods of representing data in memory efficient
 
+<img src = "https://www.lavivienpost.com/wp-content/uploads/2021/02/data-structures-and-java-apis2.jpg" alt = "Images of Data structure">
+
 Some of the commonly used data structures are :-
 1) Stacks 
 2) Queues 
