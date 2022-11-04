@@ -10,3 +10,14 @@ Linked Lists solve this problem using dynamic memory allocation. Whenever we nee
 ## Introduction 
 Every element in a Linked list is stored in the form of a node. A node comprises of two things, data and the the address of the next node.
 We also have an external pointer called head poinying at the first node of linked list.
+
+## Types of Linked List
+1) Singly Linked List : 
+
+2) Doubly Linked List : 
+
+<img src = "" alt = "Image of doubly Linked list">
+
+3) Circular Linked List :
+
+4) Circular Doubly Linked List : 
