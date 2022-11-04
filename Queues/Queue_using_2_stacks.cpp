@@ -1,109 +1,112 @@
-/* 1 means to enqueue , 2 means to deque , 3 means to print front element */
+/*This code implements queue using 2 stacks*/
 #include <iostream>
+#define MAX_SIZE 100 // The maximum number of elements a stack can hold is 100
 
 using namespace std;
 
 class Stack
 {
 private:
-    int arr[10000];
+    int stack[MAX_SIZE];
+    int top = -1;
 
 public:
-    int top; // points at the topmost element in a stack
     void push(int element);
-    void pop();
-    void peek();
-}; // creating two stacks
+    int pop();
+    int peek();
+};
 
+/*This function allows us to insert an element in stack*/
 void Stack ::push(int element)
 {
-    if (stack_1.top == -1)
+    if (top != MAX_SIZE - 1) // We can not push anymore elements if the stack is full
     {
-        stack_1.top = 0;
-        arr[stack_1.top] = element;
-        stack_1.top++;
+        top++;
+        stack[top] = element;
     }
     else
     {
-        arr[stack_1.top] = element;
-        stack_1.top++;
+        cout << "The stack is full\n";
     }
 }
 // end of function
 
-void Stack ::pop()
+/*This function removes the topmost element of stack
+if the function returns -1 , it implies stack is empty*/
+int Stack ::pop() // We can not pop any elements if the stack is empty
 {
-    stack_2.top = 0; // the top points towards the first element of stack_2 , since pop will only be called for stack_2
-
-    while (stack_1.top >= 0)
+    if (top != -1)
     {
-        stack_2.top = stack_1.top;
-        stack_2.top++;
-        stack_1.top--;
+        return stack[top--];
+        /* We need to do top-- above itself cause the staements below the return statement are not executed*/
     }
-
-    cout << arr[stack_2.top] << "\n";
-    stack_2.top--;
-
-    stack_1.top = stack_1.arr; // reseting the pointer for first stack
-
-    while (top < 0)
+    else
     {
-        stack_1.arr[stack_1.top] = stack_2.arr[stack_2.top] stack_2.top--;
-        stack_1.top++;
+        return -1; 
     }
 }
 // end of function
 
-void Stack ::peek()
+/*This function simply returns the topmost element of stack without deleting it from the stack
+if the function returns -1 , it implies stack is empty*/
+int Stack ::peek()
 {
-    stack_2.top = 0; // the top points towards the first element of stack_2 , since pop will only be called for stack_2
-
-    while (stack_1.top >= 0)
+    if (top != -1)
     {
-        stack_2.top = stack_1.top;
-        stack_2.top++;
-        stack_1.top--;
+        return stack[top]; // here, we simply return the topmost element and not decrement top
     }
-
-    cout << arr[stack_2.top] << "\n";
-
-    stack_1.top = stack_1.arr; // reseting the pointer for first stack
-
-    while (top < 0)
+    else
     {
-        stack_1.arr[stack_1.top] = stack_2.arr[stack_2.top] stack_2.top--;
-        stack_1.top++;
+        return -1; 
     }
+}
+// end of function
+
+/*Enqueue function is ued to insert element in queue
+while enqueueing, we always insert the element in stack 1*/
+void enqueue(Stack *s1, int element)
+{
+    s1->push(element);
+}
+// end of function
+
+/*dequeue function is ued to insert element in queue
+while dequeuing, if stack2 is not empty, we pop it
+else, we transfer contents of stack1 to stack2 and then pop stack2*/
+int dequeue(Stack *s1, Stack *s2)
+{
+    int x;
+
+    if (s2->peek() == -1) // if stack2 is not empty, directly pop from it
+    {
+        while (s1->peek() != -1) // transferring contents of stack1 in stack2
+        {
+            s2->push(s1->pop());
+        }
+    }
+    x = s2->pop();
+
+    return x;
 }
 // end of function
 
 int main()
 {
+    Stack s1, s2;
+    int x;
 
-    Stack stack_1, stack_2;
+    enqueue(&s1, 50);
+    enqueue(&s1, 250);
 
-    int no_of_queries;
-    cin >> no_of_queries;
+    x = dequeue(&s1 , &s2) ;
+    cout << x << "\n";
 
-    while (no_of_queries--)
-    {
-        int choice;
-        cin >> choice;
+    x = dequeue(&s1 , &s2) ;
+    cout << x << "\n";
 
-        if (choice == 1)
-        {
-            int element;
-            cin >> element;
-            stack_1.push(element);
-        }
-        else if (choice == 2)
-        {
-            stack_2.pop();
-        }
-        else
-        {
-            stack_2.peek();
-        }
-    }
+    x = dequeue(&s1 , &s2) ;
+    cout << x << "\n";
+
+    return 0;
 }
+// end of main
