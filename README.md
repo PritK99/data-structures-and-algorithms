@@ -1,6 +1,7 @@
 # Data Structures and Algorithm Saga 
 A data structure is a specialized format for organizing, processing, retrieving and storing data. 
-<img src = "https://www.lavivienpost.com/wp-content/uploads/2021/02/data-structures-and-java-apis2.jpg" alt = "Images of Data structure">
+<img src = "https://www.lavivienpost.com/wp-content/uploads/2021/02/data-structures-and-java-apis2.jpg" alt = "Images of Data structure" width = "500" height = "500">
+
 Some of the commonly used data structures are :-
 1) Stacks 
 2) Queues 
