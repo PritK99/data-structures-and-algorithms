@@ -3,7 +3,7 @@
 ## Introduction 
 Stack is a linear data structure which follows LIFO manner i.e. Last-In-First-Out. This means that the element to eneter the stack last, will be the first element to be removed.
 
-<img src = "[https://cdn.programiz.com/sites/tutorial2program/files/stack.png](https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149320038.jpg?w=2000)](https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149320038.jpg?w=2000)" alt = "Image of Stack" >
+<img src = "[[https://cdn.programiz.com/sites/tutorial2program/files/stack.png](https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149320038.jpg?w=2000)](https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149320038.jpg?w=2000)](https://media.istockphoto.com/vectors/stacks-colorful-poker-chips-vector-id821746862?k=20&m=821746862&s=612x612&w=0&h=wtQ6iewQFv6d_R4uesUkjqdm_bFARxXYJwM-V-wiOX4=)" alt = "Image of Stack" >
 
 ## Data elements 
 1) An array to store data 
