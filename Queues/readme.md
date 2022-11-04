@@ -14,6 +14,8 @@ A queue is defined as a linear data structure that is open at both ends and the 
 2) Front pointer - usually for deletion
 3) Rear pointer - usually for insertion 
 
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png" alt = "Image of queue" >
+
 ## Basic operations on Queue
 1) Enqueue() : To insert an element to queue
 2) Dequeue() : To delete an element from to queue
