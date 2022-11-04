@@ -1,6 +1,8 @@
 # Introduction
 A queue is defined as a linear data structure that is open at both ends and the operations are performed in First In First Out (FIFO) order. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue).
 
+<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Py6QOvcwZwKtV50MtvCkUQHK909rImWJAw&usqp=CAU" alt = "Image of Queue" >
+
 ## Types of Queue 
 1) Simple Queue
 2) Circular Queue
