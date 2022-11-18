@@ -29,3 +29,5 @@ A tree is called binary tree if each node has zero child, one child or two child
 
 3) <b>Complete Binary Tree</b>: A binary tree is called complete binary tree if all leaf nodes are at height h or h – 1 
   .
+### Properties 
+1) The number of nodes n in a full binary tree is 2<sup>h+1</sup> – 1. 
