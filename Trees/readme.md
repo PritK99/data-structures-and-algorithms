@@ -18,16 +18,3 @@ A tree structure is a way of representing the hierarchical nature of a structure
 
 ## Binary Trees
 A tree is called binary tree if each node has zero child, one child or two children.
-
-### Types of Binary tree 
-1) <b>Strict Binary Tree</b>: A binary tree is called strict binary tree if each node has exactly two children or no children.
-
-![image](https://user-images.githubusercontent.com/103832825/202590229-f0dc4323-18bf-4e66-88ef-d6754167426c.png)
-
-2) <b>Full Binary Tree</b>: A binary tree is called full binary tree if each node has exactly two children and all leaf nodes are at the same level.
-![image](https://user-images.githubusercontent.com/103832825/202590324-6cb3f1ce-c463-4ce2-abfc-3eeb359143dd.png)
-
-3) <b>Complete Binary Tree</b>: A binary tree is called complete binary tree if all leaf nodes are at height h or h – 1 
-  .
-### Properties 
-1) The number of nodes n in a full binary tree is 2<sup>h+1</sup> – 1. 
