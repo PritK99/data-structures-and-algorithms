@@ -1,5 +1,5 @@
 /*
-Code to create a graph using Adjacency Matrix representation
+Code to create a graph using Adjacency listrepresentation
 We consider the graph to be directed graph and non-weighted with no self loops
 */
 #include <iostream>
@@ -9,8 +9,13 @@ using namespace std;
 class Graph
 {
 private:
+    struct Node
+    {
+        int data;
+        struct Node *next;
+    };
     int no_of_vertices;
-    bool **adj_matrix;
+    struct Node **adj_list;
 
 public:
     void make_graph(int no_of_vertices);
@@ -26,17 +31,11 @@ Returns : void
 void Graph ::make_graph(int no_of_vertices)
 {
     this->no_of_vertices = no_of_vertices;
-
     // creating a graph
-    adj_matrix = new bool *[no_of_vertices];
+    adj_list = new struct Node *[no_of_vertices];
     for (int i = 0; i < no_of_vertices; i++)
     {
-        adj_matrix[i] = new bool[no_of_vertices];
-        // initializing all the elements of graph
-        for (int j = 0; j < no_of_vertices; j++)
-        {
-            adj_matrix[i][j] = 0;
-        }
+        adj_list[i] = NULL;
     }
 }
 // end of function
@@ -48,12 +47,20 @@ Returns : void
 */
 void Graph ::display()
 {
-    cout << "The adjacency matrix representation is :-\n";
+    cout << "The adjacency list representation is :-\n";
     for (int i = 0; i < no_of_vertices; i++)
     {
-        for (int j = 0; j < no_of_vertices; j++)
+        cout << i << " : ";
+        if (adj_list[i] != NULL)
         {
-            cout << adj_matrix[i][j] << " ";
+            struct Node *temp;
+            temp = adj_list[i];
+            while (temp->next != NULL)
+            {
+                cout << temp->data << " -> ";
+                temp = temp->next;
+            }
+            cout << temp->data;
         }
         cout << "\n";
     }
@@ -79,7 +86,24 @@ void Graph ::add_edge()
 
                 if (toupper(choice) == 'Y')
                 {
-                    adj_matrix[i][j] = 1;
+                    if (adj_list[i] == NULL)
+                    {
+                        struct Node *temp;
+                        temp = new struct Node;
+                        adj_list[i] = temp;
+                        temp->data = j;
+                        temp->next = NULL;
+                        continue;
+                    }
+                    struct Node *temp;
+                    temp = adj_list[i];
+                    while (temp->next != NULL)
+                    {
+                        temp = temp->next;
+                    }
+                    temp->next = new struct Node;
+                    temp->next->data = j;
+                    temp->next->next = NULL;
                 }
             }
         }
@@ -98,7 +122,6 @@ int main()
     g.make_graph(no_of_vertices);
     g.add_edge();
     g.display();
-
     return 0;
 }
 // end of main
