@@ -5,6 +5,7 @@ Note :-
 3) Insertion takes o(log(n)) time averagely, since this is not a BST.
 */
 #include <iostream>
+
 #define MAX_SIZE 100
 
 using namespace std;
@@ -188,7 +189,7 @@ void Queue ::new_init(struct node *root)
 
     if (!isEmpty())
     {
-        root = *queue;
+        root = queue;
     }
     else
     {
