@@ -30,5 +30,5 @@ In this representation all the vertices connected to a vertex v are listed on an
 <img src = "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/7-6.png" alt = "Image of adjacency list">
 
 ### Comparison
-<img src = "https://i.stack.imgur.com/P8UiR.png" alt = "comparison between different graph representation methods">
+<img src = "https://i.stack.imgur.com/P8UiR.png" alt = "comparison between different graph representation methods" width = "500" height = "200">
 
