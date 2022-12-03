@@ -24,7 +24,11 @@ otherwise.
 
 The adjacency matrix representation is good if the graphs are dense. The matrix requires O(V^2) bits of storage and O(V^2) time for initialization. If the number of edges is proportional to V^2, then there is no problem because V^2 steps are required to read the edges. If the graph is sparse, the initialization of the matrix dominates the running time of the algorithm as it takes takes O(V^2).
 
-## Adjecency list
+### Adjecency list
 In this representation all the vertices connected to a vertex v are listed on an adjacency list for that vertex v. This can be easily implemented with linked lists. That means, for each vertex v we use a linked list and list nodes represents the connections between v and other vertices to which v has an edge.
 
+<img src = "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/7-6.png" alt = "Image of adjacency list">
+
+### Comparison
+<img src = "https://i.stack.imgur.com/P8UiR.png" alt = "comparison between different graph representation methods">
 
