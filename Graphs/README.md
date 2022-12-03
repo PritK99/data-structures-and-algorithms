@@ -33,4 +33,7 @@ In this representation all the vertices connected to a vertex v are listed on an
 
 ![image](https://user-images.githubusercontent.com/103832825/205418780-9021d6f0-4d99-4265-b95a-63c7cea1faea.png)
 
+# Traversal
+
+
 
