@@ -50,3 +50,5 @@ Prim's and Kruskal's algorithm are two such algorithms which help us in obtainin
 
 Prim's and Kruskal's algorithm are essentially <b>greedy algorithms</b> based on the <b>cut property</b>.
 According to the cut property, If a Graph G ( V , E ) is cut into two sections such that one has X edges and other has V - X edges , where X is a subset of V, then in that case the minimum weighted edge that connects both the partions is always a part of the Minimum Spanning Tree.
+
+![WhatsApp Image 2022-12-08 at 3 10 34 PM](https://user-images.githubusercontent.com/103832825/206412365-0501f7b4-00c4-4052-a57f-e9491c1bfcdc.jpeg)
