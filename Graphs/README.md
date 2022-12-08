@@ -47,3 +47,6 @@ What we require in this case is a minimum spanning tree , weher each computer is
 ![146b47a](https://user-images.githubusercontent.com/103832825/206368911-f9f81771-ae27-4cbb-a3fa-70295fdc5436.jpg)
 
 Prim's and Kruskal's algorithm are two such algorithms which help us in obtaining minimum spanning trees.
+
+Prim's and Kruskal's algorithm are essentially <b>greedy algorithms</b> based on the <b>cut property</b>.
+According to the cut property, If a Graph G ( V , E ) is cut into two sections such that one has X edges and other has V - X edges , where X is a subset of V, then in that case the minimum weighted edge that connects both the partions is always a part of the Minimum Spanning Tree.
