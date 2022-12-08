@@ -35,5 +35,14 @@ In this representation all the vertices connected to a vertex v are listed on an
 
 # Traversal
 
+# Minimum Spanning Trees 
 
+For any Graph G = ( V , E ) , E' is a subset of E with minimum total weight such that G' = ( V , E' ) is a connected.
+
+It is called as Minimum sice we try to output the edges with minumum total weight. Further, the graph so obtained is always a tree such that E' = V - 1 .
+
+Imagine you have a set of comuters, and you want all of the computers to be accessible to each other directly or indirectly, and with the minimum amount of wires.
+What we require in this case is a minimum spanning tree , weher each computer is a node and length of wires is edges and their cost. 
+
+Prim's and Kruskal's algorithm are two such algorithms which help us in obtaining minimum spanning trees.
 
