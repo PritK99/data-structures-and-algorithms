@@ -5,7 +5,7 @@
 
 Graph: A graph is a pair (V, E), where V is a set of nodes, called vertices, and £ is a collection of pairs of vertices, called edges.
 
-In the real world, many problems are represented in terms of objects and connections between them. For example, in an railway map, we might be interested in questions like: “What’s the fastest way to go from Mumbai to Delhi?” or “What is the cheapest way to go from Mumbai to Delhi”. Graphs are data structures used for solving these kinds of problems.
+In the real world, many problems are represented in terms of objects and connections between them. For example, in an railway map, we might be interested in questions like: “What’s the fastest way to go from home to college?” or “What is the cheapest way to go from home to college”. Graphs are data structures used for solving these kinds of problems.
 
 # Representaion
 
@@ -44,5 +44,6 @@ It is called as Minimum sice we try to output the edges with minumum total weigh
 Imagine you have a set of comuters, and you want all of the computers to be accessible to each other directly or indirectly, and with the minimum amount of wires.
 What we require in this case is a minimum spanning tree , weher each computer is a node and length of wires is edges and their cost. 
 
-Prim's and Kruskal's algorithm are two such algorithms which help us in obtaining minimum spanning trees.
+![146b47a](https://user-images.githubusercontent.com/103832825/206368911-f9f81771-ae27-4cbb-a3fa-70295fdc5436.jpg)
 
+Prim's and Kruskal's algorithm are two such algorithms which help us in obtaining minimum spanning trees.
