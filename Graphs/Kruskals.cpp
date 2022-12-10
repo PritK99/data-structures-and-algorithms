@@ -95,79 +95,92 @@ void Graph ::add_edge()
 
 void Graph ::kruskals()
 {
-    int explored_vertices[no_of_vertices];
-    int explored_index = 0;
-    bool flag_1 = 0 ;
-    bool flag_2 = 0 ;
+    /* Initializing a array to keep a record of families of each vertex
+    index 0 of array means 0th vertex and so on*/
+    int sets[no_of_vertices];
+    int total_cost = 0;
+    for (int i = 0; i < no_of_vertices; i++)
+    {
+        sets[i] = i; // This step makes all the vertices a parent of themselves
+    }
+
+    cout << "The edges which belong to MST are :" ;
 
     while (no_of_edges--)
     {
-        int min = -1;
-        int temp_i = 0, temp_j = 0;
-        for (int i = 0; i < no_of_vertices; i++)
+        /*we run the while loop for the total no of edges*/
+
+        /*First we check if the MST is complete*/
+        bool not_completed_flag = 0;
+        for (int i = 1; i < no_of_vertices; i++)
         {
-            for (int j = 0; j < no_of_vertices; j++)
+            if (sets[i - 1] != sets[i])
             {
-                if (adj_matrix[i][j] > 0)
-                {
-                    if (min == -1)
-                    {
-                        min = adj_matrix[i][j];
-                        temp_i = i;
-                        temp_j = j;
-                    }
-                    else if (adj_matrix[i][j] <= min)
-                    {
-                        min = adj_matrix[i][j];
-                        temp_i = i;
-                        temp_j = j;
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
+                not_completed_flag = 1; // All the vertices are still not connected in MST
+                break;
             }
         }
 
-        for (int l = 2; l > 0; l--)
+        if (not_completed_flag == 0)
         {
-            for (int k = 0; k < explored_index; k++)
-            {
-                if (explored_vertices[k] == temp_i )
-                {
-                    flag_1 = 1 ;
-                    break ;
-                }
-            }              
-        }
-
-        for (int l = 2; l > 0; l--)
-        {
-            for (int k = 0; k < explored_index; k++)
-            {
-                if (explored_vertices[k] == temp_j )
-                {
-                    flag_2 = 1 ;
-                    break ;
-                }
-            }
-                
-        }
-
-        if (flag_1 == 1 && flag_2 == 1)
-        {
-            continue ;
+            break; // this means MST has been created completely
         }
         else
         {
-            flag_1 = flag_2 = 0 ;
-            adj_matrix[temp_i][temp_j] = 0;
-            explored_vertices[explored_index++] = temp_i;
-            explored_vertices[explored_index++] = temp_j;
-            cout << "Minimum edge available is between " <<temp_i << " and " << temp_j << " of cost : " << min << endl ;
+            /*first we find the edge with the minimum weight*/
+            int min = -1;
+            int temp_i = 0, temp_j = 0;
+            for (int i = 0; i < no_of_vertices; i++)
+            {
+                for (int j = 0; j < no_of_vertices; j++)
+                {
+                    if (adj_matrix[i][j] > 0)
+                    {
+                        if (min == -1)
+                        {
+                            min = adj_matrix[i][j];
+                            temp_i = i;
+                            temp_j = j;
+                        }
+                        else if (adj_matrix[i][j] <= min)
+                        {
+                            min = adj_matrix[i][j];
+                            temp_i = i;
+                            temp_j = j;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+            }
+            /*Now that we have the most minimum edge possible, we check if that belongs to the same family or not*/
+            /*we store the values in temp_1 and temp_2 since sets[temp_i] OR sets[temp_j] are subject to change after each pass in for loop*/
+            int temp_1 = sets[temp_i] ;
+            int temp_2 = sets[temp_j] ;
+            if (sets[temp_i] != sets[temp_j])
+            {
+                for (int i = 0; i < no_of_vertices; i++)
+                {
+                    /*Convert the entire family of second vertex to first family*/
+                    if (sets[i] == temp_2)
+                    {
+                        sets[i] = temp_1 ;
+                    }
+                }
+                total_cost = total_cost + adj_matrix[temp_i][temp_j];
+
+                cout << " " << temp_i << "-" << temp_j ;
+            }
+
+            adj_matrix[temp_i][temp_j] = 0; // we have made cost of that path 0 to avoid recomparison
+
         }
     }
+
+
+    cout << "\nTotal cost of the MST : : " << total_cost << endl;
 }
 // main function starts here
 int main()
