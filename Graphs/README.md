@@ -43,6 +43,8 @@ In this representation all the vertices connected to a vertex v are listed on an
 
 Many a times, we deal with Directed graphs, or graphs where there is only a one-way relationship
 
+![image](https://user-images.githubusercontent.com/103832825/206919370-1c11880e-d9a2-42e6-bcf7-67b3da328e42.png)
+
 For eg. If we were to a city map as a graph, It has to be a directed graph since many roads are One-way i.e. there is only a one way relationship
 
 Another example can be of hyperlinks. You may go to a page B from page A via a hyperlink, but then you may not be able to come back from B to A.
