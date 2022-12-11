@@ -37,6 +37,8 @@ In this representation all the vertices connected to a vertex v are listed on an
 
 # Types of Graph
 
+There are several types of graphs. Description of some of common types of graph is given below :-
+
 ## Undirected graph
 
 ## Directed Graph
@@ -51,6 +53,18 @@ Another example can be of hyperlinks. You may go to a page B from page A via a h
 
 Another example is social networks. For eg. if you are a friend with someone, that is a symmetric relation, but if you are follower of a certain celebrity (say emma watson) , that becomes a one way relation.
 
+## DAG - Directed Acyclic graph
+
+A DAG is simply a Directed graph with no cycles. Hence, we can linearly order DAGs.
+
+This linearly ordering of DAGs is called as Topological sorting.
+
+The above graph is also a DAG, and hence when we sort it, we know we have to first Wake up, take a shower, dress up and then go to work. This is the linear order.
+
+Also, since a DAG can always be linearly ordered, It has a source and a sink node.
+
+
+<a href = "https://www.gatevidyalay.com/tag/connected-graph-definition/" alt="Referance to several types of graph">Click Here</a> to learn about several types of graph in detail.
 
 # Traversal
 
