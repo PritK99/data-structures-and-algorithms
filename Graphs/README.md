@@ -22,16 +22,33 @@ otherwise.
 ![image](https://user-images.githubusercontent.com/103832825/205418525-12985bed-d22d-4db0-8808-58304748678f.png)
 ![image](https://user-images.githubusercontent.com/103832825/205418536-5f32e9b6-a0d2-4811-b51e-02e90c8f14a8.png)
 
-The adjacency matrix representation is good if the graphs are dense. The matrix requires O(V^2) bits of storage and O(V^2) time for initialization. If the number of edges is proportional to V^2, then there is no problem because V^2 steps are required to read the edges. If the graph is sparse, the initialization of the matrix dominates the running time of the algorithm as it takes takes O(V^2).
+The adjacency matrix representation is good if the graphs are dense. 
+
+The matrix requires O(V^2) bits of storage and O(V^2) time for initialization. If the number of edges is proportional to V^2, then there is no problem because V^2 steps are required to read the edges. If the graph is sparse, the initialization of the matrix dominates the running time of the algorithm as it takes takes O(V^2).
 
 ## Adjecency list
+
 In this representation all the vertices connected to a vertex v are listed on an adjacency list for that vertex v. This can be easily implemented with linked lists. That means, for each vertex v we use a linked list and list nodes represents the connections between v and other vertices to which v has an edge.
 
+<br>
 <img src = "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/7-6.png" alt = "Image of adjacency list">
 
-## Comparison
+<br>
 
-![image](https://user-images.githubusercontent.com/103832825/205418780-9021d6f0-4d99-4265-b95a-63c7cea1faea.png)
+# Types of Graph
+
+## Undirected graph
+
+## Directed Graph
+
+Many a times, we deal with Directed graphs, or graphs where there is only a one-way relationship
+
+For eg. If we were to a city map as a graph, It has to be a directed graph since many roads are One-way i.e. there is only a one way relationship
+
+Another example can be of hyperlinks. You may go to a page B from page A via a hyperlink, but then you may not be able to come back from B to A.
+
+Another example is social networks. For eg. if you are a friend with someone, that is a symmetric relation, but if you are follower of a certain celebrity (say emma watson) , that becomes a one way relation.
+
 
 # Traversal
 
