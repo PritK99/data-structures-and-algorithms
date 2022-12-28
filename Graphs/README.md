@@ -16,33 +16,22 @@ Another example is maps, you can think of maps as a graph, sort of where you hav
 <img src = "https://www.mapsofindia.com/maps/gujarat/railways/bharuch_railway.jpg" alt = "Image of a city map">
 
 # Representaion
-
 Three ways to represent a graph are :-
-1) Adjacency Matrix
-2) Adjacency List
-3) Adjacency Set
 
+## 1) Edge list
+## 2) Adjacency Matrix
 
-## Adjecency Matrix
-In this method, we use a matrix with size V × V. The values of matrix are boolean. The value matrix[u][v] is set to 1 if there is an edge from vertex u to vertex v and 0
-otherwise.
+In this method, we use a matrix with size V × V. The values of matrix are boolean. The value of matrix[u][v] is set to 1 if there is an edge from vertex u to vertex v.
 
-![image](https://user-images.githubusercontent.com/103832825/205418525-12985bed-d22d-4db0-8808-58304748678f.png)
-![image](https://user-images.githubusercontent.com/103832825/205418536-5f32e9b6-a0d2-4811-b51e-02e90c8f14a8.png)
+## 3) Adjacency List
 
-The adjacency matrix representation is good if the graphs are dense. 
+In this representation all the vertices connected to a vertex v are listed on an adjacency list for that vertex v. This can be implemented with linked lists. That means, for each vertex v we use a linked list and list nodes represents the connections between v and other vertices to which v has an edge.
 
-The matrix requires O(V^2) bits of storage and O(V^2) time for initialization. If the number of edges is proportional to V^2, then there is no problem because V^2 steps are required to read the edges. If the graph is sparse, the initialization of the matrix dominates the running time of the algorithm as it takes takes O(V^2).
+# Time Complexity in Graphs
 
-## Adjecency list
+And for the most of the algorithms we've seen so far, the input sort of has one size parameter, n.
 
-In this representation all the vertices connected to a vertex v are listed on an adjacency list for that vertex v. This can be easily implemented with linked lists. That means, for each vertex v we use a linked list and list nodes represents the connections between v and other vertices to which v has an edge.
-
-<br>
-<img src = "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/7-6.png" alt = "Image of adjacency list">
-
-<br>
-
+However, graph algorithms, well, the graph sort of has two measures of its size. The number of vertices and the number of edges. Thus the time complexity of graphs is reoresented in form of V and E suc as O(V + E).
 # Types of Graph
 
 There are several types of graphs. Description of some of common types of graph is given below :-
