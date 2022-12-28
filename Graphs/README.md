@@ -5,7 +5,13 @@
 
 Graph: A graph is a pair (V, E), where V is a set of nodes, called vertices, and £ is a collection of pairs of vertices, called edges.
 
-In the real world, many problems are represented in terms of objects and connections between them. For example, in an railway map, we might be interested in questions like: “What’s the fastest way to go from home to college?” or “What is the cheapest way to go from home to college”. Graphs are data structures used for solving these kinds of problems.
+In the real world, many problems are represented in terms of objects and connections between them. 
+
+For example, the Internet often can be thought of as a graph, where you've got various web pages and theyre connected to each other by links. On the other hand, if you want to do something like Google's page rank algorithm, make sort of heavy use of this very high level view of the Internet and connectivity within it. 
+
+Another example is maps, you can think of maps as a graph, sort of where you have intersections that are connected by roads. For example, we might be interested in questions like: “What’s the fastest way to go from home to college?” or “What is the cheapest way to go from home to college”. Graphs are data structures used for solving these kinds of problems.
+
+<img src = "https://www.mapsofindia.com/maps/gujarat/railways/bharuch_railway.jpg" alt = "Image of a city map">
 
 # Representaion
 
@@ -63,10 +69,19 @@ The above graph is also a DAG, and hence when we sort it, we know we have to fir
 
 Also, since a DAG can always be linearly ordered, It has a source and a sink node.
 
-
 <a href = "https://www.gatevidyalay.com/tag/connected-graph-definition/" alt="Referance to several types of graph">Click Here</a> to learn about several types of graph in detail.
 
+### Strong connected components in a directed graph
+
+For a given Directed graph, it can always be divided into a set of strongly connected components.
+
+U and V strongly connected if there is a path from U to reach V and a path from V to reach U. In other words, U and V will be part of a cycle. Each set of strongly connected components can become a node in metagraph.
+
+<img src = "https://images.slideplayer.com/19/5917165/slides/slide_12.jpg" alt = "Metagraph image">
+
 # Traversal
+
+The two of most popular traversing algorithm are DFS and BFS.
 
 # Minimum Spanning Trees 
 
