@@ -9,6 +9,8 @@ In the real world, many problems are represented in terms of objects and connect
 
 For example, the Internet often can be thought of as a graph, where you've got various web pages and theyre connected to each other by links. On the other hand, if you want to do something like Google's page rank algorithm, make sort of heavy use of this very high level view of the Internet and connectivity within it. 
 
+![image](https://user-images.githubusercontent.com/103832825/209884707-4b8529f3-0a38-421b-aa07-4b65aacdc4e1.png)
+
 Another example is maps, you can think of maps as a graph, sort of where you have intersections that are connected by roads. For example, we might be interested in questions like: “What’s the fastest way to go from home to college?” or “What is the cheapest way to go from home to college”. Graphs are data structures used for solving these kinds of problems.
 
 <img src = "https://www.mapsofindia.com/maps/gujarat/railways/bharuch_railway.jpg" alt = "Image of a city map">
