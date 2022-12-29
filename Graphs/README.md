@@ -1,5 +1,5 @@
 # Graphs
-<img src = "https://cdn-media-1.freecodecamp.org/images/9KFiyFYi9bMktsJkMKLKaeJl31heUN9A-xrr" alt= "image of graph">
+<img src = "https://miro.medium.com/max/1400/1*dtmsuTMqRvYzkUCS25tLDA.jpeg" alt= "image of graph">
 
 # Introduction
 
@@ -34,6 +34,10 @@ And for the most of the algorithms we've seen so far, the input sort of has one 
 However, graphs have <b>two measures of its size</b>. The <b>number of vertices</b> and the <b>number of edges</b>. Thus the time complexity of graphs is represented in form of V and E such as O(V + E).
 
 ![image](https://user-images.githubusercontent.com/103832825/209886437-a8edaa8b-4709-44cc-b5a5-0e2c300f8b4c.png)
+
+Which form of representation is the best depends on the graph.
+If it is <b>sparse graph</b>, i.e. V ~ E, then adjacency list works faster.
+However if it is<b> dense graph</b>, i.e.V ~ E <sup>2</sup> then both adjaceny list and matrix work in almost same time.
 
 # Types of Graph
 

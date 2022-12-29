@@ -88,11 +88,9 @@ void Graph ::add_edge()
                 {
                     if (adj_list[i] == NULL)
                     {
-                        struct Node *temp;
-                        temp = new struct Node;
-                        adj_list[i] = temp;
-                        temp->data = j;
-                        temp->next = NULL;
+                        adj_list[i] = new struct Node;
+                        adj_list[i]->data = j;
+                        adj_list[i]->next = NULL;
                         continue;
                     }
                     struct Node *temp;
