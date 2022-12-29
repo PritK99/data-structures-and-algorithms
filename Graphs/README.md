@@ -31,7 +31,7 @@ In this representation all the vertices connected to a vertex v are listed on an
 
 And for the most of the algorithms we've seen so far, the input sort of has one size parameter, n.
 
-However, graph algorithms, well, the graph sort of has two measures of its size. The number of vertices and the number of edges. Thus the time complexity of graphs is reoresented in form of V and E suc as O(V + E).
+However, graphs have <b>two measures of its size</b>. The <b>number of vertices</b> and the <b>number of edges</b>. Thus the time complexity of graphs is represented in form of V and E such as O(V + E).
 
 ![image](https://user-images.githubusercontent.com/103832825/209886437-a8edaa8b-4709-44cc-b5a5-0e2c300f8b4c.png)
 
