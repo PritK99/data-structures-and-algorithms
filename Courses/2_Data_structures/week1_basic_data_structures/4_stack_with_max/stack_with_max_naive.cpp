@@ -1,5 +1,7 @@
 /*This code introduces us to stack as a data structures and basic operations on stack*/
 #include <iostream>
+#include <string>
+
 #define MAX_SIZE 100 // The maximum number of elements a stack can hold is 100
 
 using namespace std;
@@ -105,7 +107,7 @@ int main()
     string query;
     for (int i = 0; i < n; i++)
     {
-        cin >> query;
+        cin.getline(query , 80) ;;
         if (query[0] == 'm')
         {
             x = s1.get_max();
@@ -114,8 +116,7 @@ int main()
         else if (query[0] == 'p' && query[1] == 'o')
         {
             x = s1.pop();
-            cout
-                << x << endl;
+            cout<< x << endl;
         }
         else
         {
