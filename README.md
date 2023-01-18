@@ -1,4 +1,9 @@
 # The Data Structures and Algorithm Saga 
+
+## Table of contents 
+
+
+## Introduction
 A data structure is a data organization, management, and storage format that is usually chosen for efficient access to data. In simple words, data structures are just a way to represent data in memory which makes storing, operating on them etc very efficient.
 
 <img src = "https://i.ytimg.com/vi/Qmt0QwzEmh0/maxresdefault.jpg" alt = "Images of Data structure">
@@ -12,7 +17,7 @@ Some of the commonly used data structures are :-
 
 ## Time complexity 
 
-Consider the following algorithm for calculating nth Fibonacci number 
+Consider the following algorithm for calculating nth Fibonacci number.
 
 ![image](https://user-images.githubusercontent.com/103832825/213064383-fde80516-e343-4982-92ad-4e36f17c0190.png)
 
@@ -22,7 +27,7 @@ But we should really ask ourselves, is this number of lines of code executed rea
 
 Thus, the time it will take for the computer to run this code depends on severaal factors such as system architecture, compiler, memory organizations etc. which may vary from computer to computer drastically. Thus this is not such an efficient measure of time.
 
-Hence, we find time complexity such that it tells us how our runtime scales with input size, and not necessarily how long it actually takes in terms of real seconds, minutes, and hours.
+Hence, we find time complexity such that it tells us how our <b>runtime</b> scales with <b>input size</b>, and not necessarily how long it actually takes in terms of real seconds, minutes, and hours.
 
 ### A few noteworthy points :- 
 1) Pointers always take up 8 bytes of space in 64 bit architecture 
