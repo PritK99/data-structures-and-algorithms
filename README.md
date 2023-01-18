@@ -14,6 +14,8 @@ Some of the commonly used data structures are :-
 
 Consider the following algorithm for calculating nth Fibonacci number 
 
+![image](https://user-images.githubusercontent.com/103832825/213064383-fde80516-e343-4982-92ad-4e36f17c0190.png)
+
 Thus, we start by creating an array. We assigned the 0th element to 0. The first element to 1. Then, we have this big for loop where we set the i'th element to the sum of the i minus first and i minus second elements and then at the end of the day we return the nth element. So we determined that when we ran this program we executed about 2n + 2 lines of code. 
 
 But we should really ask ourselves, is this number of lines of code executed really sort of an accurate description of the runtime of the algorithm? Somehow, implicitly, this measure of lines of code assumes that, sort of, any two lines of code are sort of comparable to each other, which may not be true always.
