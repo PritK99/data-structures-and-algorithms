@@ -10,6 +10,18 @@ Some of the commonly used data structures are :-
 4) Tree
 5) Graphs
 
+## Time complexity 
+
+Consider the following algorithm for calculating nth Fibonacci number 
+
+Thus, we start by creating an array. We assigned the 0th element to 0. The first element to 1. Then, we have this big for loop where we set the i'th element to the sum of the i minus first and i minus second elements and then at the end of the day we return the nth element. So we determined that when we ran this program we executed about 2n + 2 lines of code. 
+
+But we should really ask ourselves, is this number of lines of code executed really sort of an accurate description of the runtime of the algorithm? Somehow, implicitly, this measure of lines of code assumes that, sort of, any two lines of code are sort of comparable to each other, which may not be true always.
+
+Thus, the time it will take for the computer to run this code depends on severaal factors such as system architecture, compiler, memory organizations etc. which may vary from computer to computer drastically. Thus this is not such an efficient measure of time.
+
+Hence, we find time complexity such that it tells us how our runtime scales with input size, and not necessarily how long it actually takes in terms of real seconds, minutes, and hours.
+
 ### A few noteworthy points :- 
 1) Pointers always take up 8 bytes of space in 64 bit architecture 
 2) Struct involves padding while allocating memory , so even a struct of an int and char takes 8 bytes , while the struct of char takes 1 byte 
