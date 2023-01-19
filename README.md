@@ -27,7 +27,9 @@ But we should really ask ourselves, is this number of lines of code executed rea
 
 Thus, the time it will take for the computer to run this code depends on severaal factors such as system architecture, compiler, memory organizations etc. which may vary from computer to computer drastically. Thus this is not such an efficient measure of time.
 
-Hence, we find time complexity such that it tells us how our <b>runtime</b> scales with <b>input size</b>, and not necessarily how long it actually takes in terms of real seconds, minutes, and hours.
+Hence, we find time complexity such that it tells us how our <b>runtime</b> scales with <b>input size</b>, and not necessarily how long it actually takes in terms of real seconds, minutes, and hours. 
+
+This is generally denoted by <b>Big-O</b> such as O(nlogn)
 
 ![image](https://user-images.githubusercontent.com/103832825/213328248-1b7095f6-08e0-4202-ab2a-7ef6acfbf2eb.png)
 
