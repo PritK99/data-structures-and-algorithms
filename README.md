@@ -29,6 +29,8 @@ Thus, the time it will take for the computer to run this code depends on severaa
 
 Hence, we find time complexity such that it tells us how our <b>runtime</b> scales with <b>input size</b>, and not necessarily how long it actually takes in terms of real seconds, minutes, and hours.
 
+![image](https://user-images.githubusercontent.com/103832825/213328248-1b7095f6-08e0-4202-ab2a-7ef6acfbf2eb.png)
+
 ### A few noteworthy points :- 
 1) Pointers always take up 8 bytes of space in 64 bit architecture 
 2) Struct involves padding while allocating memory , so even a struct of an int and char takes 8 bytes , while the struct of char takes 1 byte 
