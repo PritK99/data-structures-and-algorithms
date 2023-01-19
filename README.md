@@ -33,9 +33,9 @@ This is generally denoted by <b>Big-O</b> such as O(nlogn)
 
 ![image](https://user-images.githubusercontent.com/103832825/213328248-1b7095f6-08e0-4202-ab2a-7ef6acfbf2eb.png)
 
+<a href = "https://github.com/PritK99/data-structures-and-algorihms/blob/main/bigO.md" >Click here</a> to see plots of various functions (such as logarithm, polynomial, exponent) and understand rules of Big-O.
+
 ### A few noteworthy points :- 
 1) Pointers always take up 8 bytes of space in 64 bit architecture 
 2) Struct involves padding while allocating memory , so even a struct of an int and char takes 8 bytes , while the struct of char takes 1 byte 
 
-### Doubts :- 
-1) How to free nodes in adj list after use ?
