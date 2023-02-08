@@ -11,6 +11,15 @@ int get_fibonacci_last_digit_naive(int n) {
         int tmp_previous = previous;
         previous = current;
         current = tmp_previous + current;
+
+        if (current > 9)
+        {
+            current %= 10 ;
+        }
+        if (previous > 9)
+        {
+            previous %= 10 ;
+        }
     }
 
     return current % 10;
