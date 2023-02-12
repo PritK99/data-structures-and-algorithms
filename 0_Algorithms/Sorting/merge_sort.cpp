@@ -1,3 +1,4 @@
+/*In this program, we will sort a list of elements using merge sort*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,6 +6,7 @@
 
 using namespace std ;
 
+/*This function merges two sorted arrays : left and right i.e. Conquering step*/
 vector<int> Merge(vector <int> left, vector <int> right)
 {
     vector<int> merged ;
@@ -44,6 +46,7 @@ vector<int> Merge(vector <int> left, vector <int> right)
     return merged ;
 }
 
+/*This function breaks the given array in two halves recursively i.e. Dividing step*/
 vector<int> MergeSort (vector<int> A, int begin, int end)
 {
     vector<int> sorted ;
