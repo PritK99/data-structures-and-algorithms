@@ -11,16 +11,16 @@ vector<int> Merge(vector <int> left, vector <int> right)
     auto p = left.begin() ;
     auto q = left.end() ;
     auto r = right.begin() ;
-    auto s = right.begin() ;
+    auto s = right.end() ;
 
-    while (p <= q && r <= s)
+    while (p < q || r < s)
     {
-        if (p > q && r<=s)
+        if (p == q && r<=s)
         {
             merged.push_back(*r) ;
             r++ ;
         }
-        else if (p <= q && r>s)
+        else if (p < q && r == s)
         {
             merged.push_back(*p) ;
             p++ ;
@@ -47,13 +47,15 @@ vector<int> Merge(vector <int> left, vector <int> right)
 vector<int> MergeSort (vector<int> A, int begin, int end)
 {
     vector<int> sorted ;
-    if(A.size() == 1)
+    if(end - begin == 1)
     {
-        return A ;
+        vector<int> temp ;
+        temp.push_back(A[begin]) ;
+        return temp ;
     }
-    int m = floor(A.size()/2) ;
-    vector<int> left = MergeSort(A, 0, m) ;
-    vector<int> right = MergeSort(A, m+1, A.size()) ;
+    int m = floor((end - begin)/2) ;
+    vector<int> left = MergeSort(A, begin, begin+m) ;
+    vector<int> right = MergeSort(A, begin+m, end) ;
     sorted = Merge(left, right) ;
     return sorted ;
 }
