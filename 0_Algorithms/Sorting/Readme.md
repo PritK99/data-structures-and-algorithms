@@ -1,5 +1,7 @@
 # <b>Sorting</b>
 
+![image](https://user-images.githubusercontent.com/103832825/218310565-e2d13365-d5e8-47e0-a95a-edb0b1119ba7.png)
+
 ## Table of Contents
 
 * Introduction
