@@ -36,4 +36,8 @@ In merge sort, we split the given array recursively and then sort them indivisua
 
 ## <b>Conclusion</b>
 
+The time complexities of a few sorting algorithms are given below
+
+![image](https://user-images.githubusercontent.com/103832825/218310768-d7d0b13e-bfe6-4f6b-a8fe-dd753132682a.png)
+
 For visualization of the above sorting algorithms, refer : https://www.toptal.com/developers/sorting-algorithms OR https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html.
