@@ -7,4 +7,6 @@ The next step is probably finding the largest coin smaller than 15 cents, it is 
 
 Another approach is a recursive way to deal with this problem as given in ```recursive_coin_change.cpp```, but clearly, this approach would take a lot of time. Thus we go for dynamic programming.
 
-In dynamic programming, rather than thinking how can we break the change into smaller coins, we try to think how can we build that change using minimum coins step by step. For eg. to get a chnage of 9 from coins of 1,
+In dynamic programming, rather than thinking how can we break the change into smaller coins, we try to think how can we build that change using minimum coins step by step. For eg. 
+
+![image](https://user-images.githubusercontent.com/103832825/223014197-ad0a5185-a6b3-46a5-af2f-28338813646a.png)
