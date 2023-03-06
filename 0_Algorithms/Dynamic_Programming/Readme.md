@@ -10,3 +10,5 @@ Another approach is a recursive way to deal with this problem as given in ```rec
 In dynamic programming, rather than thinking how can we break the change into smaller coins, we try to think how can we build that change using minimum coins step by step. For eg. 
 
 ![image](https://user-images.githubusercontent.com/103832825/223014197-ad0a5185-a6b3-46a5-af2f-28338813646a.png)
+
+<a href="https://www.cs.usfca.edu/~galles/visualization/DPChange.html">Click here</a> to compare various algorithms for coin change.
