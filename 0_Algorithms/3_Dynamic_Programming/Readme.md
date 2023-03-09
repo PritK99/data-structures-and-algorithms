@@ -1,5 +1,7 @@
 ## Dynamic Programming
 
+![image](https://user-images.githubusercontent.com/103832825/223900068-37f0ef68-154d-4a03-8758-f5d44841bea7.png)
+
 ### Introduction
 
 The greedy approach, though is very easy to think, does not always work. Another approach is a recursive way to deal with this problem is using the top-down approach, but clearly, this approach would take a lot of time. The problem with this approach is that we solve the same sub-problems several times. 
