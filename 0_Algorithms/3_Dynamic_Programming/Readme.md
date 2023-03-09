@@ -1,6 +1,10 @@
 ## Dynamic Programming
 
-![image](https://user-images.githubusercontent.com/103832825/223900068-37f0ef68-154d-4a03-8758-f5d44841bea7.png)
+```
+Thus, I thought dynamic programming was a good name. It was something not even a Congressman could object to.
+
+                                                                                      ~ Richard Bellman
+```
 
 ### Introduction
 
