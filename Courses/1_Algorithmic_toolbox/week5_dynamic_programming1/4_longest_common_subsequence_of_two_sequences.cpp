@@ -22,12 +22,12 @@ int edit_distance(vector<int> num1, vector<int> num2, int x, int y, int count)
 
   for (int i = 0; i < x + 1; i++)
   {
-    matrix[i][0] = 0;
+    matrix[i][0] = i;
   }
 
   for (int j = 0; j < y + 1; j++)
   {
-    matrix[0][j] = 0;
+    matrix[0][j] = j;
   }
 
   for (int i = 1; i < x + 1; i++)
@@ -36,60 +36,69 @@ int edit_distance(vector<int> num1, vector<int> num2, int x, int y, int count)
     {
       if (num1[i - 1] == num2[j - 1])
       {
-        matrix[i][j] = matrix[i - 1][j - 1] + 1;
+        matrix[i][j] = min(matrix[i - 1][j - 1], matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
       }
       else
       {
-        matrix[i][j] = max(matrix[i][j - 1], matrix[i - 1][j]);
+        matrix[i][j] = min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) + 1;
       }
     }
   }
 
-  // int i = x, j = y, counter = 0;
-  // while (i > 0 || j > 0)
-  // {
-  //   int temp = matrix[i][j];
+  for (int i = 0 ; i < x+1 ; i ++)
+  {
+    for (int j = 0 ; j < y+1; j++)
+    {
+      cout << matrix[i][j] << " " ;
+    }
+    cout << endl;
+  }
 
-  //   if (i == 0)
-  //   {
-  //     j = j - 1;
-  //   }
+  int i = x, j = y, counter = 0;
+  while (i > 0 || j > 0)
+  {
+    int temp = matrix[i][j];
 
-  //   else if (j == 0)
-  //   {
-  //     i = i - 1;
-  //   }
+    if (i == 0)
+    {
+      j = j - 1;
+    }
 
-  //   else
-  //   {
-  //     int x = min(matrix[i - 1][j], matrix[i - 1][j - 1], matrix[i][j - 1]);
+    else if (j == 0)
+    {
+      i = i - 1;
+    }
 
-  //     if (matrix[i - 1][j - 1] == x && x == temp)
-  //     {
-  //       counter++;
-  //       cout << num1[i - 1] << " - " << num2[j - 1] << endl;
-  //       i--;
-  //       j--;
-  //     }
-  //     else if (matrix[i][j - 1] == x)
-  //     {
-  //       j = j - 1;
-  //     }
-  //     else if (matrix[i - 1][j] == x)
-  //     {
-  //       i = i - 1;
-  //     }
-  //     else
-  //     {
-  //       i--;
-  //       j--;
-  //     }
-  //   }
-  // }
+    else
+    {
+      int x = min(matrix[i - 1][j], matrix[i - 1][j - 1], matrix[i][j - 1]);
 
-  // cout << counter << endl;
+      if (matrix[i - 1][j - 1] == x && x == temp)
+      {
+        counter++;
+        cout << num1[i - 1] << " - " << num2[j - 1] << endl;
+        i--;
+        j--;
+      }
+      else if (matrix[i][j - 1] == x)
+      {
+        j = j - 1;
+      }
+      else if (matrix[i - 1][j] == x)
+      {
+        i = i - 1;
+      }
+      else
+      {
+        i--;
+        j--;
+      }
+    }
+  }
 
-  cout << matrix[x][y];
+  cout << counter << endl;
+
+  return matrix[x][y];
 }
 
 int main()
