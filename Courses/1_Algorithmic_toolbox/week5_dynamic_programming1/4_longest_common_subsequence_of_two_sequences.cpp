@@ -23,6 +23,13 @@ int min(int x, int y, int z)
   }
 }
 
+/*
+ * Function Name: LCS
+ * Input: 2 integer vectors
+ * Output: Returns the length of longest common subsequence in two strings
+ * Logic: Creates a 2D matrix and calculates longest common subsequence using dynamic programming
+ * Example Call: LCS(v1, v2)
+ */
 int LCS(vector<int> num1, vector<int> num2, int x, int y)
 {
     int matrix[x + 1][y + 1] ;

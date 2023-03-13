@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*
+ * Function Name: min
+ * Input: 3 int values which are to be compared
+ * Output: Returns the minimum of 3 numbers
+ * Logic: To get the minimum of 3 given numbers
+ * Example Call: min(5, 8, 18)
+ */
 int min(int x, int y, int z)
 {
     if (x <= y && x <= z)
@@ -16,7 +23,14 @@ int min(int x, int y, int z)
     }
 }
 
-int lcs(string string1, string string2)
+/*
+ * Function Name: LCS
+ * Input: 2 strings
+ * Output: Returns the length of longest common substring in two strings
+ * Logic: Creates a 2D matrix and calculates longest common substring using dynamic programming
+ * Example Call: LCS(string1, string2)
+ */
+int LCS(string string1, string string2)
 {
     int x = string1.length();
     int y = string2.length();
@@ -24,12 +38,12 @@ int lcs(string string1, string string2)
 
     for (int i = 0; i < x + 1; i++)
     {
-        matrix[i][0] = i;
+        matrix[i][0] = 0;
     }
 
     for (int j = 0; j < y + 1; j++)
     {
-        matrix[0][j] = j;
+        matrix[0][j] = 0;
     }
 
     for (int i = 1; i < x + 1; i++)
@@ -38,64 +52,14 @@ int lcs(string string1, string string2)
         {
             if (string1[i - 1] == string2[j - 1])
             {
-                matrix[i][j] = min(matrix[i - 1][j - 1], matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
+                matrix[i][j] = matrix[i - 1][j - 1] + 1;
             }
             else
             {
-                matrix[i][j] = min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) + 1;
+                matrix[i][j] = max(matrix[i][j - 1], matrix[i - 1][j]);
             }
         }
     }
-
-    int i = x, j = y, counter = 0;
-    while (i > 0 || j > 0)
-    {
-        cout << i << " " << j << endl ;
-        int temp = matrix[i][j];
-
-        if (i == 0)
-        {
-            j = j - 1;
-        }
-        else if (j == 0)
-        {
-            i = i - 1;
-        }
-        else
-        {
-            int x = min(matrix[i - 1][j], matrix[i - 1][j - 1], matrix[i][j - 1]);
-            if (matrix[i - 1][j - 1] == x)
-            {
-                if (x == temp)
-                {
-                    cout << string1[i-1] << " " << string2[j-1] << endl;
-                    counter++;
-                }
-                else if (matrix[i][j - 1] == x )
-                {
-                    j = j - 1;
-                    continue ;
-                }
-                else if (matrix[i-1][j] == x )
-            {
-                i = i - 1;
-                continue ;
-            }
-                i--;
-                j--;
-            }
-            else if (matrix[i][j - 1] == x)
-            {
-                j = j - 1;
-            }
-            else
-            {
-                i = i - 1;
-            }
-        }
-    }
-
-    cout << counter << endl;
 
     return matrix[x][y];
 }
@@ -104,13 +68,16 @@ int main()
 {
 
     string string1;
+    cout << "Please enter first sequence: " ;
     cin >> string1;
 
     string string2;
-
+    cout << "Please enter second sequence: " ;
     cin >> string2;
 
-    int total_cost = lcs(string1, string2);
+    int lcs = LCS(string1, string2);
+
+    cout << "The longest common sequence among two strings is of length: " << lcs ;
 
     return 0;
 }

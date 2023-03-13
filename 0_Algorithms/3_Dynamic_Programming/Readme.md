@@ -27,3 +27,12 @@ In dynamic programming for the coin change problem, rather than thinking how can
 <a href="https://www.cs.usfca.edu/~galles/visualization/DPChange.html">Click here</a> to compare various algorithms for coin change.
 
 For each of the examples, I have tried to present it with a naive solution first (generally using recursion) and then the solution using dynamic programming. For eg. `coin_change_naive.cpp` is a brute force solution to coin change problem using recursion, while `coin_change1.cpp` and `coin_change2.cpp` are solution using memoization and bottom-up approach of dynamic programming respectively.
+
+### Contents
+
+* ```coin_change_naive.cpp```
+* ```coin_change.cpp```
+* ```knapsack_unlimited.cpp```
+* ```longest_common_sequence_naive.cpp```
+* ```longest_common_sequence.cpp```
+* ```optimal_alignment.cpp```
