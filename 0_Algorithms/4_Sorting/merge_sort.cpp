@@ -1,4 +1,6 @@
-/*In this program, we will sort a list of elements using merge sort*/
+/******************************************************************************
+    @brief        Merge Sort
+*******************************************************************************/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,7 +8,13 @@
 
 using namespace std ;
 
-/*This function merges two sorted arrays : left and right i.e. Conquering step*/
+/*
+ * Function Name: Merge
+ * Input: Requires two sorted vectors
+ * Output: returns the merged vector which is sorted
+ * Logic: This function merges two sorted arrays : left and right i.e. Combining step
+ * Example Call: c Merge(left, right)
+ */
 vector<int> Merge(vector <int> left, vector <int> right)
 {
     vector<int> merged ;
@@ -46,7 +54,13 @@ vector<int> Merge(vector <int> left, vector <int> right)
     return merged ;
 }
 
-/*This function breaks the given array in two halves recursively i.e. Dividing step*/
+/*
+ * Function Name: MergeSort
+ * Input: Requires a vector, starting index and ending index
+ * Output: returns the sorted array
+ * Logic: Recursively divides the given vector in two halves and passes them to merge function
+ * Example Call: c MergeSort(A, 0, 5)
+ */
 vector<int> MergeSort (vector<int> A, int begin, int end)
 {
     vector<int> sorted ;
@@ -89,3 +103,6 @@ int main ()
         cout << result[i] << " " ;
     }
 }
+/*
+Analysis: The above code runs in O(nlog(n))
+*/
