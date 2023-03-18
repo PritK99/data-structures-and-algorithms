@@ -4,9 +4,49 @@
 
 using namespace std ;
 
-vector <int> QuickSort()
+void Swap(int &i, int &j)
 {
-    
+    int temp = i ;
+    i = j;
+    j = temp;
+}
+
+int Partition(vector<int> &v, int pivot, int i, int j)
+{
+    if (i == j)
+    {
+        return v[i] ;
+    }
+
+    while (i < j)
+    {
+        if (v[i] > v[pivot] && v[j] < v[pivot])
+        {
+            swap(v[i],v[j]) ;
+            i++ ;
+            j --;
+        }
+        else if (v[i] <= v[pivot])
+        {
+            i++ ;
+        }
+        else if (v[j] > v[pivot])
+        {
+            j-- ;
+        }
+    }
+
+    Swap(v[pivot], v[i-1]);
+    return i-1;
+
+}
+
+void QuickSort(vector<int> &v, int pivot, int l, int r)
+{
+    int m = Partition(v, pivot, l, r);
+
+    QuickSort(v, v[l], l, m-1) ;
+    QuickSort(v, v[m+1], m+1, r) ;
 }
 
 int main ()
@@ -27,8 +67,14 @@ int main ()
     }   
     v.push_back(num);
 
-    vector<int> result ;
-    result = QuickSort() ;
+    int pivot = 0 ;     //Initially the pivot element is element at 0th index
+
+    QuickSort(v, pivot, 0, v.size()-1) ;
+
+    for (int i = 0 ; i < v.size(); i++)
+    {
+        cout << v[i] << " " ;
+    }
 
     return 0 ;
 }
