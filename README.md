@@ -9,11 +9,13 @@ A data structure is a data organization, management, and storage format that is 
 <img src = "https://i.ytimg.com/vi/Qmt0QwzEmh0/maxresdefault.jpg" alt = "Images of Data structure">
 
 Some of the commonly used data structures are :-
-1) Stacks 
-2) Queues 
-3) Linked List
-4) Tree
-5) Graphs
+1) Arrays
+2) Stacks 
+3) Queues 
+4) Linked List
+5) Tree
+6) Heaps
+7) Graphs
 
 ## Time complexity 
 
