@@ -1,6 +1,6 @@
-/* Here , we are implementing a queue using Linked list
-Insertion - O(1)
-Deletion - O(1)*/
+/*******************************************************
+    @brief        Implementing queue using a linked list
+********************************************************/
 
 #include <iostream>
 
@@ -18,9 +18,16 @@ struct Node
 struct Node *front = NULL;
 struct Node *rear = NULL;
 
+/*
+ * Function Name: enqueue
+ * Input: Integer element which is to be inserted
+ * Output: None
+ * Logic: This function allows us to insert an element in queue
+ * Example Call: enqueue(5)
+ */
 void enqueue(int element)
 {
-    Node *temp = (Node *)malloc(sizeof(Node)); // dynaminc allocation of memory
+    Node *temp = (Node *)malloc(sizeof(Node)); // dynamic allocation of memory
     if (temp == NULL)
     {
         cout << "Queue is full";
@@ -33,13 +40,20 @@ void enqueue(int element)
     }
     else
     {
-        rear->next = temp; // the next of the last / rear node should point at new node temp
+        rear->next = temp; // the next of the rear node should point at new node temp
         temp->data = element;
         temp->next = NULL;
         rear = temp; // rear should point to the new node formed
     }
 }
 
+/*
+ * Function Name: dequeue
+ * Input: None
+ * Output: Returns the first element of queue
+ * Logic: This function allows us to remove the first element of queue
+ * Example Call: dequeue()
+ */
 void dequeue()
 {
     if (front == NULL)
@@ -56,6 +70,13 @@ void dequeue()
     }
 }
 
+/*
+ * Function Name: display
+ * Input: None
+ * Output: Prints all the elements in the queue
+ * Logic: This function allows us to print the elements currently in queue
+ * Example Call: display()
+ */
 void display()
 {
     Node *temp = front;

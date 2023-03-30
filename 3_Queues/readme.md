@@ -36,3 +36,4 @@ Further subtypes of DEQueue :-
 2) Output-Resticted-Dequeue - Deletion only takes place at front end, while insertion can take place at either of ends
 
 # Priority Queues
+Refer ```6_Heaps``` for implementation of Priority queues.

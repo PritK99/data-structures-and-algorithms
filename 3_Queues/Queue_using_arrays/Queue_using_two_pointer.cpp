@@ -1,18 +1,16 @@
-/* Here , we are implementing a queue using arrays , by using two pointers
-Insertion - O(1)
-Deletion - O(1)*/
-
+/*******************************************************************
+    @brief        Implementing queue using a array and a two pointer
+********************************************************************/
 #include <iostream>
 #define MAX_SIZE 10
-
 using namespace std;
 
 class Queue
 {
 private:
     int queue[MAX_SIZE];
-    int *rear = NULL; 
-    int *front = NULL ; // initially , the pointers points to NULL
+    int *rear = NULL;
+    int *front = NULL; // initially , the pointers points to NULL
 
 public:
     void enqueue(int element);
@@ -22,10 +20,16 @@ public:
     void display();
 };
 
-/* to insert an element to the queue*/
+/*
+ * Function Name: enqueue
+ * Input: Integer element which is to be inserted
+ * Output: None
+ * Logic: This function allows us to insert an element in queue
+ * Example Call: enqueue(5)
+ */
 void Queue ::enqueue(int element)
 {
-    if (!isFull()) //insert element only if queue is not full
+    if (!isFull()) // insert element only if queue is not full
     {
         if (rear == NULL) // if the queue is empty , and the element is first to be inserted
         {
@@ -44,33 +48,43 @@ void Queue ::enqueue(int element)
         cout << "queue is full!\n";
     }
 }
-// end of function
 
-/* to insert an element to the queue*/
+/*
+ * Function Name: dequeue
+ * Input: None
+ * Output: Returns the first element of queue
+ * Logic: This function allows us to remove the first element of queue
+ * Example Call: dequeue()
+ */
 void Queue ::dequeue()
 {
-    if (!isEmpty()) //we check if queue is not empty
+    if (!isEmpty()) // we check if queue is not empty
     {
         cout << *front << "\n";
         front++; // incrementing the front the pointer to previous position
-        //for dequeue , we first delete the element to which the front is pointing , then we increment front
+        // for dequeue , we first delete the element to which the front is pointing , then we increment front
     }
     else
     {
         cout << "The queue is empty!\n";
     }
 }
-// end of function
 
-/*to display the entire queue*/
+/*
+ * Function Name: display
+ * Input: None
+ * Output: Prints all the elements in the queue
+ * Logic: This function allows us to print the elements currently in queue
+ * Example Call: display()
+ */
 void Queue ::display()
 {
     if (!isEmpty())
     {
         cout << "The elements of queue are : ";
-        for (int i = 0; front + i <= rear ; i++) // here , we print the element in queue till address of queue's last element matches with address at which rear points
+        for (int i = 0; front + i <= rear; i++) // here , we print the element in queue till address of queue's last element matches with address at which rear points
         {
-            cout << *(front+i) << " ";
+            cout << *(front + i) << " ";
         }
         cout << "\n";
     }
@@ -79,13 +93,19 @@ void Queue ::display()
         cout << "The queue is empty!\n";
     }
 }
-// end of function
 
+/*
+ * Function Name: isFull
+ * Input: None
+ * Output: Returns a boolean true if the queue is full
+ * Logic: This function allows us to check if the queue is full
+ * Example Call: isFull()
+ */
 bool Queue ::isFull()
 {
     if (rear >= &queue[MAX_SIZE - 1])
     {
-        return true ; // we return false since the queue had 1 element left and is not yet empty
+        return true; // we return false since the queue had 1 element left and is not yet empty
     }
     else
     {
@@ -93,10 +113,16 @@ bool Queue ::isFull()
     }
 }
 
-// returns true if queue is empty. We generally use this function in dequeue() to check during deletion
+/*
+ * Function Name: isEmpty
+ * Input: None
+ * Output: Returns a boolean true if the queue is empty
+ * Logic: This function allows us to check if the queue is empty
+ * Example Call: isEmpty()
+ */
 bool Queue ::isEmpty()
 {
-    if (rear < front || rear == NULL) //when the queue is empty , ether the front pointer is ahead of the rear pointer , or the rear pointer is null
+    if (rear < front || rear == NULL) // when the queue is empty , ether the front pointer is ahead of the rear pointer , or the rear pointer is null
     {
         return true;
     }
@@ -105,7 +131,6 @@ bool Queue ::isEmpty()
         return false; // for all other cases , queue is not empty
     }
 }
-// end of function
 
 int main()
 {
@@ -124,5 +149,3 @@ int main()
 
     return 0;
 }
-// end of main
-//end of program
