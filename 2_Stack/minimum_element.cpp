@@ -1,6 +1,6 @@
-/*******************************************************************
-    @brief        Implementing stack and performing basic operations
-********************************************************************/
+/******************************************************************
+    @brief        Implementing stack and extracting minimum element
+*******************************************************************/
 
 #include <iostream>
 #define MAX_SIZE 100 // The maximum number of elements our stack can hold is 100
@@ -11,11 +11,14 @@ class Stack
 private:
     int stack[MAX_SIZE];
     int top = -1;
+    int min = INT_MAX;
+    int max = INT_MIN;
 
 public:
     void push(int element);
     int pop();
     int peek();
+    int get_min();
 };
 
 /*
@@ -29,6 +32,16 @@ void Stack ::push(int element)
 {
     if (top != MAX_SIZE - 1) // We can not push anymore elements if the stack is full
     {
+        if (top == -1)
+        {
+            min = element ;
+        }
+        if (element < min && top != -1)
+        {
+            int temp = element ;
+            element = element - min  ;
+            min = temp ;
+        }
         top++;
         stack[top] = element;
     }
@@ -49,6 +62,14 @@ int Stack ::pop()
 {
     if (top != -1)
     {
+        if (peek() < min)
+        {
+            int temp = min ;
+            min = temp - peek() ;
+            // cout << "min is: " << min << endl ;
+            top -- ;
+            return temp ;
+        }
         return stack[top--];
         /* We need to do top-- above itself cause the staements below the return statement are not executed*/
     }
@@ -79,31 +100,51 @@ int Stack ::peek()
     }
 }
 
+int Stack:: get_min ()
+{
+    if (top == -1)
+    {
+        return -1 ;
+    }
+    return min ;
+}
+
 int main()
 {
+    int n ;
+    cin >> n ;
     Stack s1;
     int x;
-
-    s1.push(50);
-    s1.push(100);
-    s1.push(150);
-
-    x = s1.peek();
-    cout << x << "\n";
-
-    x = s1.pop();
-    cout << x << "\n";
-    x = s1.pop();
-    cout << x << "\n";
-    x = s1.pop();
-    cout << x << "\n";
-
-    x = s1.pop();
-    cout << x << "\n";
+    
+    for (int i = 0 ; i < n ; i++)
+    {
+        int choice ;
+        cin >> choice ;
+        
+        if (choice == 1)
+        {
+            int element ;
+            cin >> element ;
+            s1.push(element) ;
+        }
+        else if(choice == 2)
+        {
+            s1.pop() ;
+        }
+        else 
+        {
+            x = s1.get_min() ;
+            cout << x << "\n";
+        }
+    }
 
     return 0;
 }
 
 /*
-Analysis: The above code runs in O(1) for push, pop and peek.
+Analysis: The above code runs in O(1) for extracting minimum element.
+
+Aliter: The same thing can be implemented by using 3 stacks, one to hold elements, one for maximum element and one for minimum element.
+
+Note: The same code works for extracting maximum element by modifying few conditions.
 */

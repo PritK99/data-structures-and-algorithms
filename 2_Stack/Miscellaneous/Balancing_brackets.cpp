@@ -1,15 +1,9 @@
-/*Here, we are trying to implement a code to test brackets indentation
-This code not only inform the user that there is an error in the usage of brackets, but also point to the exact place in the code with the problematic bracket. 
-First priority is to find the first unmatched closing bracket which either doesn’t have an opening bracket before it,
-like ] in ](), or closes the wrong opening bracket, like } in ()[}. If there are no such mistakes, then
-it should find the first unmatched opening bracket without the corresponding closing bracket after it,
-like ( in {}([]. If there are no mistakes, text editor should inform the user that the usage of brackets
-is correct.
-Apart from the brackets, code can contain big and small latin letters, digits and punctuation marks.*/
+/*******************************************
+    @brief        Balancing brackets in text
+********************************************/
 
 #include <iostream>
 #define MAX_SIZE 10000
-
 using namespace std;
 
 class Stack
@@ -24,7 +18,13 @@ public:
     char peek();
 };
 
-/*This function allows us to insert an element in stack*/
+/*
+ * Function Name: push
+ * Input: Integer element which is to be pushed
+ * Output: None
+ * Logic: This function allows us to insert an element in stack
+ * Example Call: push(5)
+ */
 void Stack ::push(char element)
 {
     if (top != MAX_SIZE - 1) // We can not push anymore elements if the stack is full
@@ -33,11 +33,15 @@ void Stack ::push(char element)
         stack[top] = element;
     }
 }
-// end of function
 
-/*This function removes the topmost element of stack
-if the function returns -1 , it implies stack is empty*/
-char Stack ::pop() // We can not pop any elements if the stack is empty
+/*
+ * Function Name: pop
+ * Input: None
+ * Output: Returns the topmost element of stack or -1 if stack is empty
+ * Logic: This function allows us to remove an element from stack
+ * Example Call: pop()
+ */
+char Stack ::pop() 
 {
     if (top != -1)
     {
@@ -51,8 +55,13 @@ char Stack ::pop() // We can not pop any elements if the stack is empty
 }
 // end of function
 
-/*This function simply returns the topmost element of stack without deleting it from the stack
-if the function returns -1 , it implies stack is empty*/
+/*
+ * Function Name: peek
+ * Input: None
+ * Output: Returns the topmost element of stack or -1 if stack is empty without deleting it
+ * Logic: This function allows us to remove an element from stack without deleting it
+ * Example Call: peek()
+ */
 char Stack ::peek()
 {
     if (top != -1)
@@ -64,7 +73,6 @@ char Stack ::peek()
         return 'X';
     }
 }
-// end of function
 
 int main()
 {
