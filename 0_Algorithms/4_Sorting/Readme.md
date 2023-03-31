@@ -10,6 +10,7 @@
     * Merge Sort
     * Count Sort
     * Quick Sort
+    * Heap Sort
 * Conclusion
 
 ## Sorting Algorithms
@@ -37,6 +38,14 @@ However, for this algorithm to work, we need to deal with a <b>fixed range</b> o
 Quick sort is a <b>Comparison based sorting algorithm</b>. The runtime of this algorithm depends on the partitions which are created. If the partitions are always created at the center, the algorithm works in O(nlog(n)). However, if we were to assume the worst case, it would work in O(n^2). 
 
 In Quick sort, we can prove that choosing a random element as a pivot is generally a good choice which increases our probability to get the partitions which lead to O(nlog(n)) time complexity. The same is depicted in ```randomized_quick_sort.cpp```.
+
+### <b>Heap Sort</b>
+
+In order to implement Heap sort, we can simply convert the given array into a <b>Max-Heap</b> and perform extract-max on it and place the maximum element so recieved at the end of array.
+
+We can create a new priority queue and store elements in the new array one by one, maintaining the heap property. However this requires extra space. Thus, we can rather convert the given array into a priority queue itself, avoiding use of extra space. 
+
+Heap sort works in O(nlog(n)) and is a comparison based algorithm.
 ## <b>Conclusion</b>
 
 The time complexities of a few sorting algorithms are given below
