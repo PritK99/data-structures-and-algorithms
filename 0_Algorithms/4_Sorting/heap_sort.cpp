@@ -104,7 +104,7 @@ int extractMax(int maxHeap[], int *n)
 }
 
 /*
- * Function Name: extractMax
+ * Function Name: Heapify
  * Input: Takes the array, and size of array by reference
  * Output: None
  * Logic: This function creates heap out of given array without taking any extra space
