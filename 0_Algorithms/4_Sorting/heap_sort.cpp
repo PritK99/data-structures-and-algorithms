@@ -90,8 +90,7 @@ void siftDown(int maxHeap[], int index, int *n)
 /*
  * Function Name: extractMax
  * Input: Takes the array, and index of element
- * Output: None
- * Logic: This function shifts the element up the heap to its correct position
+ * Output: Returns the maximum element i.e. root element of heap
  * Example Call: SiftUp(maxHeap, 5)
  */
 int extractMax(int maxHeap[], int *n)
