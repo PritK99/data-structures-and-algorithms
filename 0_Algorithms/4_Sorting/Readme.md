@@ -39,7 +39,7 @@ Quick sort is a <b>Comparison based sorting algorithm</b>. The runtime of this a
 
 In Quick sort, we can prove that choosing a random element as a pivot is generally a good choice which increases our probability to get the partitions which lead to O(nlog(n)) time complexity. The same is depicted in ```randomized_quick_sort.cpp```.
 
-### <b>Heap Sort</b>
+### <b>5) Heap Sort</b>
 
 In order to implement Heap sort, we can simply convert the given array into a <b>Max-Heap</b> and perform extract-max on it and place the maximum element so recieved at the end of array.
 

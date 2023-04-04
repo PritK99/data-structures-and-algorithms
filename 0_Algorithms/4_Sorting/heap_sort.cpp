@@ -1,8 +1,17 @@
+/***************************************
+    @brief        Implementing Heap Sort
+****************************************/
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
 
+/*
+ * Function Name: parent
+ * Input: Index of the element
+ * Output: Returns the index of parent
+ * Example Call: parent(5)
+ */
 int parent(int index)
 {
     int parent = 0;
@@ -18,29 +27,58 @@ int parent(int index)
     return parent;
 }
 
-int left_child(int index)
+/*
+ * Function Name: left_child
+ * Input: Index of the element
+ * Output: Returns the index of the left child
+ * Example Call: left_child(5)
+ */
+int left_child(int index, int *n)
 {
     int left = 2 * index + 1;
+    if (left >= *n)
+    {
+        return -1;
+    }
     return left;
 }
 
-int right_child(int index)
+/*
+ * Function Name: right_child
+ * Input: Index of the element
+ * Output: Returns the index of the right child
+ * Example Call: right_child(5)
+ */
+int right_child(int index, int *n)
 {
     int right = 2 * index + 2;
+    if (right >= *n)
+    {
+        return -1;
+    }
     return right;
 }
 
+/*
+ * Function Name: siftDown
+ * Input: Takes the array, current size of array, and index of element
+ * Output: None
+ * Logic: This function shifts the element down the heap to its correct position
+ * Example Call: SiftDown(maxHeap, 5, &curr_size)
+ */
 void siftDown(int maxHeap[], int index, int *n)
 {
     while (1)
     {
-        if (maxHeap[left_child(index)] > maxHeap[right_child(index)] && (maxHeap[index] < maxHeap[left_child(index)]))
+        if (maxHeap[left_child(index, n)] > maxHeap[right_child(index, n)] && (maxHeap[index] < maxHeap[left_child(index, n)]) && left_child(index, n) != -1)
         {
-            swap(maxHeap[index], maxHeap[left_child(index)]);
+            swap(maxHeap[index], maxHeap[left_child(index, n)]);
+            index = left_child(index, n);
         }
-        else if (maxHeap[left_child(index)] < maxHeap[right_child(index)] && (maxHeap[index] < maxHeap[right_child(index)]))
+        else if (maxHeap[left_child(index, n)] < maxHeap[right_child(index, n)] && (maxHeap[index] < maxHeap[right_child(index, n)]) && right_child(index, n) != -1)
         {
-            swap(maxHeap[index], maxHeap[right_child(index)]);
+            swap(maxHeap[index], maxHeap[right_child(index, n)]);
+            index = right_child(index, n);
         }
         else
         {
@@ -49,31 +87,34 @@ void siftDown(int maxHeap[], int index, int *n)
     }
 }
 
-void siftUp(int maxHeap[], int index)
-{
-    while (index >= 1 && maxHeap[index] > maxHeap[parent(index)])
-    {
-        swap(maxHeap[index], maxHeap[parent(index)]);
-        index = parent(index);
-    }
-}
-
+/*
+ * Function Name: extractMax
+ * Input: Takes the array, and index of element
+ * Output: None
+ * Logic: This function shifts the element up the heap to its correct position
+ * Example Call: SiftUp(maxHeap, 5)
+ */
 int extractMax(int maxHeap[], int *n)
 {
     int temp = maxHeap[0];
     (*n)--;
-    maxHeap[0] = maxHeap[(*n)]; 
+    maxHeap[0] = maxHeap[(*n)];
     siftDown(maxHeap, 0, n);
     return temp;
 }
 
-void insert(int maxHeap[], int max_size, int *n, int element)
+/*
+ * Function Name: extractMax
+ * Input: Takes the array, and size of array by reference
+ * Output: None
+ * Logic: This function creates heap out of given array without taking any extra space
+ * Example Call: Heapify(maxHeap, max_size)
+ */
+void Heapify(int maxHeap[], int *n)
 {
-    if (*n < max_size)
+    for (int i = (*n) / 2; i >= 0; i--)
     {
-        maxHeap[*n] = element;
-        siftUp(maxHeap, *n);
-        (*n)++;
+        siftDown(maxHeap, i, n);
     }
 }
 
@@ -82,19 +123,30 @@ int main()
     int max_size, curr_size = 0;
     cout << "Please enter the total number of elements: ";
     cin >> max_size;
+    curr_size = max_size;
     int maxHeap[max_size] = {0};
 
     for (int i = 0; i < max_size; i++)
     {
-        int element;
-        cin >> element;
-        insert(maxHeap, max_size, &curr_size, element);
+        cin >> maxHeap[i];
     }
 
-    int max;
-    for (int i = 0; i < max_size; i++)
+    //Creating heap from the given array
+    Heapify(maxHeap, &max_size);
+
+    //Sorting
+    for (int i = 0; i < curr_size; i++)
     {
-        max = extractMax(maxHeap, &curr_size);
-        cout << max << " ";
+        int element;
+        element = extractMax(maxHeap, &max_size);
+        maxHeap[max_size] = element;
+    }
+
+    for (int i = 0; i < curr_size; i++)
+    {
+        cout << maxHeap[i] << " ";
     }
 }
+/*
+Analysis: The above algorithn runs in O(nlog(n))
+*/
