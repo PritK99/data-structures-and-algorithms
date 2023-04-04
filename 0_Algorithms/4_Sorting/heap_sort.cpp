@@ -64,7 +64,7 @@ int right_child(int index, int *n)
  * Input: Takes the array, current size of array, and index of element
  * Output: None
  * Logic: This function shifts the element down the heap to its correct position
- * Example Call: SiftDown(maxHeap, 5, &curr_size)
+ * Example Call: SiftDown(maxHeap, 5, &temp)
  */
 void siftDown(int maxHeap[], int index, int *n)
 {
@@ -120,10 +120,10 @@ void Heapify(int maxHeap[], int *n)
 
 int main()
 {
-    int max_size, curr_size = 0;
+    int max_size, temp = 0;
     cout << "Please enter the total number of elements: ";
     cin >> max_size;
-    curr_size = max_size;
+    temp = max_size;
     int maxHeap[max_size] = {0};
 
     for (int i = 0; i < max_size; i++)
@@ -135,14 +135,14 @@ int main()
     Heapify(maxHeap, &max_size);
 
     //Sorting
-    for (int i = 0; i < curr_size; i++)
+    for (int i = 0; i < temp; i++)
     {
         int element;
         element = extractMax(maxHeap, &max_size);
         maxHeap[max_size] = element;
     }
 
-    for (int i = 0; i < curr_size; i++)
+    for (int i = 0; i < temp; i++)
     {
         cout << maxHeap[i] << " ";
     }
