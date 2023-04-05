@@ -1,9 +1,6 @@
-/*In this program, we perform traversals on Binary sreach tree recursively
-Note :-
-1)The BST is not a balanced tree
-2) All the traversals take o(n) time complexity
-3) Insertion takes o(log(n)) time averagely, since this is not a BST.
-*/
+/********************************************************************
+    @brief        Implementing binary trees and performing traversals
+*********************************************************************/
 #include <iostream>
 
 using namespace std;
@@ -25,7 +22,14 @@ public:
     void postorder(struct node *root);
 };
 
-void Tree :: insert(struct node *&node, int element)
+/*
+ * Function Name: insert
+ * Input: a pointer to root node and the element to be inserted
+ * Output: None
+ * Logic: Inserts a node in the binary tree
+ * Example Call: insert(root, 5)
+ */
+void Tree ::insert(struct node *&node, int element)
 {
     if (node == NULL) // if there is no root node i.e. the tree is empty
     {
@@ -45,7 +49,13 @@ void Tree :: insert(struct node *&node, int element)
     }
 }
 
-void Tree :: inorder(struct node *root)
+/*
+ * Function Name: inorder
+ * Input: a pointer to root node
+ * Output: Prints inorder traversal of tree
+ * Example Call: inorder(root)
+ */
+void Tree ::inorder(struct node *root)
 {
     if (root != NULL)
     {
@@ -55,7 +65,13 @@ void Tree :: inorder(struct node *root)
     }
 }
 
-void Tree :: preorder(struct node *root)
+/*
+ * Function Name: preorder
+ * Input: a pointer to root node
+ * Output: Prints preorder traversal of tree
+ * Example Call: preorder(root)
+ */
+void Tree ::preorder(struct node *root)
 {
     if (root != NULL)
     {
@@ -65,7 +81,13 @@ void Tree :: preorder(struct node *root)
     }
 }
 
-void Tree :: postorder(struct node *root)
+/*
+ * Function Name: postorder
+ * Input: a pointer to root node
+ * Output: Prints postorder traversal of tree
+ * Example Call: postorder(root)
+ */
+void Tree ::postorder(struct node *root)
 {
     if (root != NULL)
     {
@@ -99,4 +121,6 @@ int main()
     t.postorder(t.root);
     printf("\n");
 }
-
+/*
+Analysis: The above algorithm runs in O(n) for traversal and O(nlog(n)) for insertion
+*/

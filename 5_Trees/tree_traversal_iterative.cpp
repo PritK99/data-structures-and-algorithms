@@ -1,9 +1,6 @@
-/*In this program, we perform traversals on Binary sreach tree but with a non-recursive approach
-Note :-
-1)The BST is not a balanced tree
-2) All the traversals take o(n) time complexity and make use of stack
-3) Insertion takes o(log(n)) time averagely, since this is not a BST.
-*/
+/********************************************************************************
+    @brief        Implementing binary trees and performing traversals iteratively
+*********************************************************************************/
 #include <iostream>
 
 #define MAX_SIZE 100

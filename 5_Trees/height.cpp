@@ -1,10 +1,8 @@
-/*In this program, we perform traversals on Binary sreach tree recursively
-Note :-
-1)The BST is not a balanced tree
-2) All the traversals take o(n) time complexity
-3) Insertion takes o(log(n)) time averagely, since this is not a balanced BST.
-*/
+/***************************************************
+    @brief        Finding the height of a given tree
+****************************************************/
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -24,6 +22,13 @@ public:
     int max(int a, int b);
 };
 
+/*
+ * Function Name: insert
+ * Input: a pointer to root node and the element to be inserted
+ * Output: None
+ * Logic: Inserts a node in the binary tree
+ * Example Call: insert(root, 5)
+ */
 void Tree ::insert(struct node *&node, int element)
 {
     if (node == NULL) // if there is no root node i.e. the tree is empty
@@ -44,18 +49,14 @@ void Tree ::insert(struct node *&node, int element)
     }
 }
 
-int Tree ::max(int a, int b)
-{
-    if (a > b)
-    {
-        return a;
-    }
-    return b;
-}
-
+/*
+ * Function Name: get_height
+ * Input: a pointer to root node 
+ * Output: Returns the height of tree
+ * Example Call: get_height(root)
+ */
 int Tree ::get_height(struct node *root)
 {
-    // cout << root->data << endl;
     if (root == NULL)
     {
         return -1;
@@ -68,7 +69,7 @@ int Tree ::get_height(struct node *root)
 
 int main()
 {
-    Tree t;
+    Tree t;     //Create an object t of Tree
 
     /*insertion*/
     t.insert(t.root, 15);
@@ -83,3 +84,6 @@ int main()
     int h = t.get_height(t.root);
     cout << h;
 }
+/*
+Analysis: The above algorithm runs in O(n) for finding height and O(nlog(n)) for insertion
+*/
