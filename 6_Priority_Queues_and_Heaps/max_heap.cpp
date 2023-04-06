@@ -1,8 +1,17 @@
+/**************************************
+    @brief        Implementing MaxHeaps
+***************************************/
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
 
+/*
+ * Function Name: parent
+ * Input: Index of the element
+ * Output: Returns the index of parent
+ * Example Call: parent(5)
+ */
 int parent(int index)
 {
     int parent = 0;
@@ -18,18 +27,37 @@ int parent(int index)
     return parent;
 }
 
+/*
+ * Function Name: left_child
+ * Input: Index of the element
+ * Output: Returns the index of the left child
+ * Example Call: left_child(5)
+ */
 int left_child(int index)
 {
     int left = 2 * index + 1;
     return left;
 }
 
+/*
+ * Function Name: right_child
+ * Input: Index of the element
+ * Output: Returns the index of the right child
+ * Example Call: right_child(5)
+ */
 int right_child(int index)
 {
     int right = 2 * index + 2;
     return right;
 }
 
+/*
+ * Function Name: siftDown
+ * Input: Takes the array, current size of array, and index of element
+ * Output: None
+ * Logic: This function shifts the element down the heap to its correct position
+ * Example Call: SiftDown(maxHeap, 5, &temp)
+ */
 void siftDown(int maxHeap[], int index, int *n)
 {
     while (1)
@@ -49,6 +77,13 @@ void siftDown(int maxHeap[], int index, int *n)
     }
 }
 
+/*
+ * Function Name: siftDown
+ * Input: Takes the array, current size of array, and index of element
+ * Output: None
+ * Logic: This function shifts the element up the heap to its correct position
+ * Example Call: SiftDown(maxHeap, 5, &temp)
+ */
 void siftUp(int maxHeap[], int index)
 {
     while (index >= 1 && maxHeap[index] > maxHeap[parent(index)])
@@ -58,6 +93,12 @@ void siftUp(int maxHeap[], int index)
     }
 }
 
+/*
+ * Function Name: extractMax
+ * Input: Takes the array, and index of element
+ * Output: Returns the maximum element i.e. root element of heap
+ * Example Call: extractMax(maxHeap, 5)
+ */
 int extractMax(int maxHeap[], int *n)
 {
     int temp = maxHeap[0];
@@ -67,6 +108,13 @@ int extractMax(int maxHeap[], int *n)
     return temp;
 }
 
+/*
+ * Function Name: insert
+ * Input: Takes the array, element, max size by value and current size of array by reference
+ * Output: None
+ * Logic: This function allows us to insert an element into heap
+ * Example Call: insert(maxHeap, max_size, &curr_size, element)
+ */
 void insert(int maxHeap[], int max_size, int *n, int element)
 {
     if (*n < max_size)
@@ -98,3 +146,6 @@ int main()
         cout << max << " ";
     }
 }
+/*
+Analysis: The above algorithm runs in O(nlog(n)) 
+*/
