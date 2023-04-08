@@ -1,6 +1,6 @@
-/***************************************************************
-    @brief        Implementing binary trees and basic operations
-****************************************************************/
+/**********************************************************************
+    @brief        Implementing binary search trees and basic operations
+***********************************************************************/
 #include <iostream>
 #include <math.h>
 
@@ -19,25 +19,85 @@ class Tree
 public:
     struct node *root = NULL; // The pointer to the root node.
     void insert(int element);
-    void inorder(struct node *&node);
-    void remove(struct node *node, int element);
-    bool find(struct node *&node, int key);
     int next(struct node *node, int key);
     int leftDescendant(struct node *&node);
     int RightAncestors(struct node *&node);
+    void remove(struct node *node, int element);
+    bool find(struct node *&node, int key);
     void range(struct node *node, int lower, int upper);
     void nearestNeighbour(struct node *node, int key);
+    void inorder(struct node *&node);
 };
-void Tree::inorder(struct node *&node)
+
+/*
+ * Function Name: insert
+ * Input: The element to be inserted
+ * Output: None
+ * Logic: Inserts a node in the binary tree
+ * Example Call: insert(5)
+ */
+void Tree::insert(int element)
 {
-    if (node != NULL)
+    if (root == NULL)
     {
-        inorder(node->left);
-        cout << node->data << " ";
-        inorder(node->right);
+        // Special case for root node
+        root = (struct node *)malloc(sizeof(node));
+        root->data = element;
+        root->parent = NULL;
+        root->left = NULL;
+        root->right = NULL;
+    }
+    else
+    {
+        struct node *node = root; // Creating a traversing pointer
+        bool inserted = 0;
+        while (!inserted)
+        {
+            if (element > node->data)
+            {
+                if (node->right == NULL)
+                {
+                    node->right = (struct node *)malloc(sizeof(struct node));
+                    node->right->parent = node;
+                    node->right->data = element;
+                    node->right->left = NULL;
+                    node->right->right = NULL;
+                    inserted = 1;
+                    continue;
+                }
+                else
+                {
+                    node = node->right;
+                }
+            }
+            else
+            {
+                if (node->left == NULL)
+                {
+                    node->left = (struct node *)malloc(sizeof(struct node));
+                    node->left->parent = node;
+                    node->left->data = element;
+                    node->left->left = NULL;
+                    node->left->right = NULL;
+                    inserted = 1;
+                    continue;
+                }
+                else
+                {
+                    node = node->left;
+                }
+            }
+        }
     }
 }
 
+/*
+ * Function Name: next
+ * Input: The root pointer and element to be inserted
+ * Output: None
+ * Logic: Finds the next element in inorder traversal
+ * Example Call: next(root, 5)
+ */
 int Tree ::next(struct node *node, int key)
 {
     // Traverse to key node
@@ -67,15 +127,28 @@ int Tree ::next(struct node *node, int key)
     return x;
 }
 
+/*
+ * Function Name: leftDescendant
+ * Input: Pointer to the node
+ * Output: Returns the value of left most descendent of the given node
+ * Example Call: leftDescendant(root->right)
+ */
 int Tree::leftDescendant(struct node *&node)
 {
-    if (node->left == NULL)
+    while (node->left != NULL)
     {
-        return node->data;
+        node = node->left ;
     }
-    return leftDescendant(node->left);
+
+    return node->data ;
 }
 
+/*
+ * Function Name: RightAncestors
+ * Input: Pointer to the node
+ * Output: Returns the value of right ancestor with value greater than that of the given node
+ * Example Call: RightAncestors(root->right)
+ */
 int Tree::RightAncestors(struct node *&node)
 {
     if (node->parent != NULL)
@@ -89,6 +162,12 @@ int Tree::RightAncestors(struct node *&node)
     return -1;
 }
 
+/*
+ * Function Name: range
+ * Input: Pointer to the node, integer values of upper limit and lower limit of range.
+ * Output: Prints the elements of tree lying in the range
+ * Example Call: range(root, 8, 45)
+ */
 void Tree::range(struct node *node, int lower, int upper)
 {
     cout << "The elements which lie in given range are: ";
@@ -126,6 +205,12 @@ void Tree::range(struct node *node, int lower, int upper)
     cout << endl;
 }
 
+/*
+ * Function Name: nearestNeighbour
+ * Input: Pointer to the node, integer value of key
+ * Output: Prints the element in tree which is nearest to the given key
+ * Example Call: nearestNeighbour(root, 5)
+ */
 void Tree::nearestNeighbour(struct node *node, int key)
 {
     // Traversing to the nearest element
@@ -183,6 +268,12 @@ void Tree::nearestNeighbour(struct node *node, int key)
     cout << endl;
 }
 
+/*
+ * Function Name: remove
+ * Input: Pointer to the node, integer value of element
+ * Output: Deletes the node with the given element as value
+ * Example Call: remove(root, 7)
+ */
 void Tree::remove(struct node *node, int element)
 {
     // Traversing to the element
@@ -266,6 +357,12 @@ void Tree::remove(struct node *node, int element)
     }
 }
 
+/*
+ * Function Name: find
+ * Input: a pointer to root node and integer value of key
+ * Output: Returns true, if the key belongs to tree
+ * Example Call: find(root, 4)
+ */
 bool Tree ::find(struct node *&node, int key)
 {
     if (node != NULL)
@@ -295,58 +392,19 @@ bool Tree ::find(struct node *&node, int key)
     return false;
 }
 
-void Tree::insert(int element)
+/*
+ * Function Name: inorder
+ * Input: a pointer to root node
+ * Output: Prints inorder traversal of tree
+ * Example Call: inorder(root)
+ */
+void Tree::inorder(struct node *&node)
 {
-    if (root == NULL)
+    if (node != NULL)
     {
-        // Special case for root node
-        root = (struct node *)malloc(sizeof(node));
-        root->data = element;
-        root->parent = NULL;
-        root->left = NULL;
-        root->right = NULL;
-    }
-    else
-    {
-        struct node *node = root; // Creating a traversing pointer
-        bool inserted = 0;
-        while (!inserted)
-        {
-            if (element > node->data)
-            {
-                if (node->right == NULL)
-                {
-                    node->right = (struct node *)malloc(sizeof(struct node));
-                    node->right->parent = node;
-                    node->right->data = element;
-                    node->right->left = NULL;
-                    node->right->right = NULL;
-                    inserted = 1;
-                    continue;
-                }
-                else
-                {
-                    node = node->right;
-                }
-            }
-            else
-            {
-                if (node->left == NULL)
-                {
-                    node->left = (struct node *)malloc(sizeof(struct node));
-                    node->left->parent = node;
-                    node->left->data = element;
-                    node->left->left = NULL;
-                    node->left->right = NULL;
-                    inserted = 1;
-                    continue;
-                }
-                else
-                {
-                    node = node->left;
-                }
-            }
-        }
+        inorder(node->left);
+        cout << node->data << " ";
+        inorder(node->right);
     }
 }
 
@@ -395,3 +453,6 @@ int main()
 
     return 0;
 }
+/*
+Analysis: Time Complexity of all the operations which includes insertion, deletion, find, range, leftDescendant, rightAncestor, nearestNeighbour, next, inorder take O(nlog(n)) time complexity.
+*/
