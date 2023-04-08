@@ -20,13 +20,13 @@ public:
     struct node *root = NULL; // The pointer to the root node.
     void insert(int element);
     void inorder(struct node *&node);
-    // void remove(struct node *&node, int element);
+    void remove(struct node *node, int element);
     bool find(struct node *&node, int key);
     int next(struct node *node, int key);
     int leftDescendant(struct node *&node);
     int RightAncestors(struct node *&node);
     void range(struct node *node, int lower, int upper);
-    void nearestNeighbour(struct node *node, int key) ;
+    void nearestNeighbour(struct node *node, int key);
 };
 void Tree::inorder(struct node *&node)
 {
@@ -38,40 +38,40 @@ void Tree::inorder(struct node *&node)
     }
 }
 
-int Tree :: next(struct node *node, int key)
+int Tree ::next(struct node *node, int key)
 {
-    //Traverse to key node
+    // Traverse to key node
     while (node->data != key)
     {
         if (node->data > key)
         {
-            node = node->left ;
+            node = node->left;
         }
         else
         {
-            node = node-> right ;
+            node = node->right;
         }
     }
 
-    //Next element is either a left descendant of right child node or an ancestor with greater value than node.
-    int x ;
+    // Next element is either a left descendant of right child node or an ancestor with greater value than node.
+    int x;
     if (node->right != NULL)
     {
-        x = leftDescendant(node->right) ;
+        x = leftDescendant(node->right);
     }
     else
     {
-        x = RightAncestors(node) ;
+        x = RightAncestors(node);
     }
 
-    return x ;
+    return x;
 }
 
 int Tree::leftDescendant(struct node *&node)
 {
     if (node->left == NULL)
     {
-        return node->data ;
+        return node->data;
     }
     return leftDescendant(node->left);
 }
@@ -82,105 +82,188 @@ int Tree::RightAncestors(struct node *&node)
     {
         if (node->data < node->parent->data)
         {
-            return node->parent->data ;
+            return node->parent->data;
         }
-        return RightAncestors(node->parent) ;
+        return RightAncestors(node->parent);
     }
-    return -1 ;
+    return -1;
 }
 
 void Tree::range(struct node *node, int lower, int upper)
 {
-    cout << "The elements which lie in given range are: " ;
+    cout << "The elements which lie in given range are: ";
 
-    //Traversing to the nearest element
+    // Traversing to the nearest element
     while (node->data != lower)
     {
         if (node->data > lower)
         {
             if (node->left == NULL)
             {
-                break ;
+                break;
             }
-            node = node->left ;
+            node = node->left;
         }
         else
         {
             if (node->right == NULL)
             {
-                break ;
+                break;
             }
-            node = node-> right ;
+            node = node->right;
         }
     }
 
-    //Printing all elements which lie in range
-    int x = node->data ;
+    // Printing all elements which lie in range
+    int x = node->data;
 
     while (x < upper && x != -1)
     {
-        cout << x << " " ;
-        x = next(root, x) ;
+        cout << x << " ";
+        x = next(root, x);
     }
 
-    cout << endl ;
+    cout << endl;
 }
 
-void Tree::nearestNeighbour(struct node *node, int key) 
+void Tree::nearestNeighbour(struct node *node, int key)
 {
-    //Traversing to the nearest element
+    // Traversing to the nearest element
     while (node->data != key)
     {
         if (node->data > key)
         {
             if (node->left == NULL)
             {
-                break ;
+                break;
             }
-            node = node->left ;
+            node = node->left;
         }
         else
         {
             if (node->right == NULL)
             {
-                break ;
+                break;
             }
-            node = node-> right ;
+            node = node->right;
         }
     }
 
-    int a = INT_MAX, b =INT_MAX, c = INT_MAX ;
+    int a = INT_MAX, b = INT_MAX, c = INT_MAX;
     if (node->parent != NULL)
     {
-        a = fabs(key - node->parent->data) ;
+        a = fabs(key - node->parent->data);
     }
     if (node->left != NULL)
     {
-        b = fabs(key - node->left->data) ;
+        b = fabs(key - node->left->data);
     }
     if (node->right != NULL)
     {
-        c = fabs(key - node->right->data) ;
+        c = fabs(key - node->right->data);
     }
 
-    cout << "The nearest neighbour to given element is: " ;
+    cout << "The nearest neighbour to given element is: ";
 
     int min = 0;
 
     if (a < b && a < c)
     {
-        cout << node->parent->data ;
+        cout << node->parent->data;
     }
     else if (b < c)
     {
-        cout << node->left->data ;
+        cout << node->left->data;
     }
     else
     {
-        cout << node->right->data ;
+        cout << node->right->data;
     }
 
-    cout << endl ;
+    cout << endl;
+}
+
+void Tree::remove(struct node *node, int element)
+{
+    // Traversing to the element
+    while (node->data != element)
+    {
+        if (node->data > element)
+        {
+            if (node->left == NULL)
+            {
+                return;
+            }
+            node = node->left;
+        }
+        else
+        {
+            if (node->right == NULL)
+            {
+                return;
+            }
+            node = node->right;
+        }
+    }
+
+    // Leaf node
+    if (node->left == NULL && node->right == NULL)
+    {
+        if (node->parent->left != NULL && node->parent->left->data == element)
+        {
+            node->parent->left = NULL;
+            free(node);
+        }
+        else
+        {
+            node->parent->right = NULL;
+            free(node);
+        }
+    }
+    // Node with right subtree
+    else if (node->right != NULL)
+    {
+        struct node *temp = node->right;
+
+        while (temp->left != NULL)
+        {
+            temp = temp->left;
+        }
+
+        node->data = temp->data;
+
+        if (temp->right != NULL)
+        {
+            if (temp->parent == node)
+            {
+                node->right = temp->right;
+                temp->right->parent = node;
+            }
+            else
+            {
+                temp->parent->left = temp->right;
+                temp->right->parent = temp->parent;
+            }
+        }
+
+        if (temp == node->right)
+        {
+            node->right = NULL;
+        }
+
+        free(temp);
+    }
+    // Node with a left subtree only
+    else
+    {
+
+        if (node->left != NULL)
+        {
+            node->parent->left = node->left;
+            node->left->parent = node->parent;
+        }
+        free(node);
+    }
 }
 
 bool Tree ::find(struct node *&node, int key)
@@ -270,16 +353,17 @@ void Tree::insert(int element)
 int main()
 {
     Tree t;
-    int x ;
+    int x;
 
-    //Insertion
+    // Insertion
     t.insert(15);
     t.insert(13);
     t.insert(5);
     t.insert(34);
     t.insert(1);
+    t.insert(35);
 
-    //Finding the element
+    // //Finding the element
     x = t.find(t.root, 131);
     if (x == 1)
     {
@@ -290,18 +374,24 @@ int main()
         cout << "Element not found\n";
     }
 
-    //Inorder traversal
-    t.inorder(t.root) ;
+    // //Inorder traversal
+    t.inorder(t.root);
 
-    //Next element
-    x = t.next(t.root, 5) ;
+    // //Next element
+    x = t.next(t.root, 5);
     cout << x << endl;
 
-    //Range 
-    t.range(t.root, 1, 33) ;
+    // //Range
+    t.range(t.root, 1, 33);
 
-    //Nearest neighbour
-    t.nearestNeighbour(t.root, 12) ;
+    // //Nearest neighbour
+    t.nearestNeighbour(t.root, 12);
+
+    // Deleting element
+    t.remove(t.root, 5);
+
+    // Inorder traversal
+    t.inorder(t.root);
 
     return 0;
 }
