@@ -1,55 +1,67 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
+using namespace std ;
 
-int knapsack(vector<int> objects, vector<int> price, int n, int size)
+int knapsack(vector <vector <int>> &matrix ,vector <int> price, vector <int> weight, int capacity, int n)
 {
-    vector<int> result(size + 1);
-    result[0] = 0; // for a bag with zero capacity
-    for (int i = 1; i <= size; i++)
+    if (capacity == 0 || n == 0)
     {
-        int total = INT_MIN;
-        for (int j = 0; j < n; j++)
+        return 0 ;
+    }
+
+    int x = 0, y = 0;
+
+    if (weight[n-1] <= capacity)
+    {
+        if (matrix[capacity - weight[n]][n-1] == 0)
         {
-            if (objects[j] <= i)
-            {
-                total = max(total, price[j] + result[i - objects[j]]);
-            }
-        }
-        if (total == INT_MIN)
-        {
-            result[i] = 0;
+            x = price[n] + knapsack(matrix, price, weight, capacity - weight[n], n-1) ;
+            matrix[capacity - weight[n-1]][n-2] = x ;
         }
         else
         {
-            result[i] = total;
+            x = matrix[capacity - weight[n-1]][n-2] ;
         }
     }
 
-    return result[size] ;
-}
-
-int main()
-{
-    int size;
-    cout << "Please enter the capacity of bag: ";
-    cin >> size;
-    int n;
-    cout << "Please enter number of different objects: ";
-    cin >> n;
-    vector<int> objects;
-    vector<int> price;
-    for (int i = 0; i < n; i++)
+    if (matrix[capacity][n-2] == 0)
     {
-        int x, y;
-        cout << "Enter weight and price of object " << i + 1 << ": ";
-        cin >> x >> y;
-        objects.push_back(x);
-        price.push_back(y);
+        y = knapsack(matrix, price, weight, capacity, n-1) ;
+        matrix[capacity][n-2] = x ;
+    }
+    else
+    {
+        y = matrix[capacity - weight[n-1]][n-2] ;
     }
 
-    int loot = knapsack(objects, price, n, size);
+    return matrix[capacity][n - 1] + max(x,y) ;
+}
 
-    cout << "The maximum loot is: " << loot;
+int main ()
+{
+    int capacity ;
+    cout << "Enter the capacity of Knapsack: ";
+    cin >> capacity ;
+    int n ;
+    cout << "Enter the total number of distinct elements: " ;
+    cin >> n ;
+    vector <int> price (n);
+    vector <int> weight (n);
+
+    for (int i = 0 ; i < n ; i++)
+    {
+        cout << "Enter weight of item " << i << " : " ;
+        cin >> weight[i] ;
+        cout << "Enter price of item " << i << " : " ;
+        cin >> price[i] ;
+    }
+
+    vector <vector <int>> matrix (capacity+1, vector <int> (weight.size(), 0)) ;
+
+    int answer = knapsack(matrix, price, weight, capacity, n-1) ;
+
+    cout << answer ;
+
+    return 0;
 }

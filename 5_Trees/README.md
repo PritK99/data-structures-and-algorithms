@@ -16,5 +16,31 @@ A tree structure is a way of representing the hierarchical nature of a structure
 4) Height of the tree is the maximum height among all the nodes in the tree and depth of the tree is the maximum depth among all the nodes in the tree. For a given tree, depth and height returns the same value. But for individual nodes we may get different results.
 5) If every node in a tree has only one child (except leaf nodes) then we call such trees <b>skew trees</b>. If every node has only left child then we call them left skew trees. Similarly, if every node has only right child then we call them right skew trees.
 
+## Tree Traversals 
+
+* Pre-ord
+
 ## Binary Trees
 A tree is called binary tree if each node has zero child, one child or two children.
+
+## AVL Trees
+
+The tree data structure proves to be effective only when the tree is a balanced in nature. 
+
+The runtime of the tree depends upon the depth of the tree. Only when the tree is a balance binary tree, we can perform the operations such as insertion, deletion, search, range, etc. in O(log(n)) time. 
+
+Else, the time complexity moves to O(n). In the worst case, the tree data structure is skewed and simply behaves like a sorted linked-list. Thus, inorder to keep our runtimes limited to O(log(n)), we must ensure our tree are balanced at all times.
+
+Height of a given tree helps to define the balance parameter. In general, for any given node, if it satisfies the given property, it is an AVL tree or a balanced binary tree
+
+```|(Height of left subtree) - (Height of right subtree)| <= 1```
+
+## CoC notes
+
+
+* Always some sort of traversal
+* Inverting a binary tree
+* Always mention in comments your base case and rec case
+* Lowest common ancestor
+* In trees, you cant have a parent pointer as such. But then you can make use of recursion, you can return it and treat that as a parent link. This time I am making use of unwinding part
+* For tree, call left, call right, return, get their results and club them up in parent

@@ -5,25 +5,6 @@
 using namespace std;
 
 /*
- * Function Name: min
- * Input: 3 int values which are to be compared
- * Output: Returns the minimum of 3 numbers
- * Logic: To get the minimum of 3 given numbers
- * Example Call: min(5, 8, 18)
- */
-int min(int x, int y, int z)
-{
-    if (x <= y && x <= z)
-    {
-        return x;
-    }
-    else
-    {
-        return min(y, z);
-    }
-}
-
-/*
  * Function Name: LCS
  * Input: 2 strings
  * Output: Returns the length of longest common substring in two strings

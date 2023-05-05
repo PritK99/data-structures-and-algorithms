@@ -413,7 +413,7 @@ int main()
     Tree t;
     int x;
 
-    // Insertion
+    //Insertion
     t.insert(15);
     t.insert(13);
     t.insert(5);
@@ -421,7 +421,7 @@ int main()
     t.insert(1);
     t.insert(35);
 
-    // //Finding the element
+    //Finding the element
     x = t.find(t.root, 131);
     if (x == 1)
     {
@@ -432,17 +432,17 @@ int main()
         cout << "Element not found\n";
     }
 
-    // //Inorder traversal
+    //Inorder traversal
     t.inorder(t.root);
 
-    // //Next element
+    //Next element
     x = t.next(t.root, 5);
     cout << x << endl;
 
-    // //Range
+    //Range
     t.range(t.root, 1, 33);
 
-    // //Nearest neighbour
+    //Nearest neighbour
     t.nearestNeighbour(t.root, 12);
 
     // Deleting element
