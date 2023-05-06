@@ -1,6 +1,6 @@
 # Ignore files with extension `.class` & `.exe`
 *.class
-*.exe
+**/*.exe
 
 # User-specific files
 *.rsuser

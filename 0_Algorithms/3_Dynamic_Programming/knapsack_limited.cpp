@@ -54,7 +54,7 @@ int knapsack(vector<int> price, vector<int> weight, int capacity, int n, vector<
         }
     }
 
-    return matrix[weight.size() - 1][capacity];
+    return matrix[weight.size()][capacity];
 }
 
 int main()

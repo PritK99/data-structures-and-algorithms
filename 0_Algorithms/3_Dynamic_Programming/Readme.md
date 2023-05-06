@@ -50,4 +50,5 @@ Dynamic programming thus uses additional memory to save computation time; it ser
 
 ## List of problems implemented 
 
-* ```longest_even_length_subtring_naive.cpp```
+* ```coin_change.cpp```
+* ```knapsack_limited.cpp```
