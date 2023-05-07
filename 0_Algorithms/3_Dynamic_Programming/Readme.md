@@ -52,3 +52,6 @@ Dynamic programming thus uses additional memory to save computation time; it ser
 
 * ```coin_change.cpp```
 * ```knapsack_limited.cpp```
+* ```longest_common_sequence.cpp```
+* ```optimal_alignment.cpp```
+* ```placing_parentheses.cpp```
