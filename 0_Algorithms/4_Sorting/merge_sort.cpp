@@ -10,47 +10,47 @@ using namespace std;
 
 /*
  * Function Name: Merge
- * Input: Requires two sorted vectors
+ * Input: Requires two sorted portions of array defined by left, mid and right
  * Output: returns the merged vector which is sorted
- * Logic: This function merges two sorted arrays : left and right i.e. Combining step
- * Example Call: c Merge(left, right)
+ * Logic: This function merges two sorted arrays and counts the number of inversions
+ * Example Call: Merge(A, 0, 4, 2)
  */
-vector<int> Merge(vector<int> left, vector<int> right)
+void Merge(vector<int> &A, int left, int right, int mid)
 {
-    vector<int> merged;
-    auto p = left.begin();
-    auto q = left.end();
-    auto r = right.begin();
-    auto s = right.end();
+    int p = left;
+    int q = mid;
 
-    while (p < q || r < s)
+    vector<int> merged;
+
+    while (p < mid && q < right)
     {
-        if (p == q && r <= s)
+        if (A[p] <= A[q])
         {
-            merged.push_back(*r);
-            r++;
-        }
-        else if (p < q && r == s)
-        {
-            merged.push_back(*p);
+            merged.push_back(A[p]);
             p++;
         }
         else
         {
-            if (*p < *r)
-            {
-                merged.push_back(*p);
-                p++;
-            }
-            else
-            {
-                merged.push_back(*r);
-                r++;
-            }
+            merged.push_back(A[q]);
+            q++;
         }
     }
 
-    return merged;
+    while (p < mid)
+    {
+        merged.push_back(A[p]);
+        p++;
+    }
+    while (q < right)
+    {
+        merged.push_back(A[q]);
+        q++;
+    }
+
+    for (int i = 0; i < merged.size(); i++)
+    {
+        A[left + i] = merged[i];
+    }
 }
 
 /*
@@ -58,26 +58,24 @@ vector<int> Merge(vector<int> left, vector<int> right)
  * Input: Requires a vector, starting index and ending index
  * Output: returns the sorted array
  * Logic: Recursively divides the given vector in two halves and passes them to merge function
- * Example Call: c MergeSort(A, 0, 5)
+ * Example Call: MergeSort(A, 0, 5)
  */
-vector<int> MergeSort(vector<int> A, int begin, int end)
+void MergeSort(vector<int> &A, int begin, int end)
 {
-    vector<int> sorted;
     if (end - begin == 1)
     {
-        vector<int> temp;
-        temp.push_back(A[begin]);
-        return temp;
+        return;
     }
-    int m = floor((end - begin) / 2);
-    vector<int> left = MergeSort(A, begin, begin + m);
-    vector<int> right = MergeSort(A, begin + m, end);
-    sorted = Merge(left, right);
-    return sorted;
+    int mid = floor((end - begin) / 2);
+    MergeSort(A, begin, begin + mid);
+    MergeSort(A, begin + mid, end);
+    Merge(A, begin, end, begin + mid);
 }
 
 int main()
 {
+    cout << "Enter the elements: " ;
+
     string s;
     getline(cin, s);
 
@@ -94,12 +92,12 @@ int main()
     }
     v.push_back(num);
 
-    vector<int> result = MergeSort(v, 0, v.size());
+    MergeSort(v, 0, v.size());
 
-    cout << "The sorted array using merge sort is : ";
-    for (int i = 0; i < result.size(); i++)
+    cout << "The sorted array is: ";
+    for (int i = 0; i < v.size(); i++)
     {
-        cout << result[i] << " ";
+        cout << v[i] << " ";
     }
 }
 /*
