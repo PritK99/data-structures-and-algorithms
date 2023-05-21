@@ -1,3 +1,6 @@
+/******************************************************************
+    @brief        Naive implementation of polynomial multiplication
+*******************************************************************/
 #include <iostream>
 
 using namespace std ;
@@ -34,10 +37,19 @@ int main ()
         }
     }
 
-    cout << "The final polynomial is : " ;
+    cout << "The coefficients of final polynomial are: (" ;
     
     for (int i = 0 ; i < 2*n + 1 ; i++)
     {
-        cout << C[i] << " " ;
+        if (i == 2*n)
+        {
+            cout << C[i] ;
+            continue ;
+        }
+        cout << C[i] << ", " ;
     }
+    cout << ")" << endl ;
 }
+/*
+Analysis: The above code runs in O(n^2).
+*/
