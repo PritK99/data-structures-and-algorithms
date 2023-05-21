@@ -1,3 +1,6 @@
+/****************************************
+    @brief        Implementing Quick Sort
+*****************************************/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,6 +14,13 @@ void Swap(int &i, int &j)
     j = temp;
 }
 
+/*
+ * Function Name: Parition
+ * Input: Requires a vector, index of pivot element, starting index and ending element
+ * Output: returns the position of pivot element in sorted array
+ * Logic: Keeps elements smaller than pivot to its left and larger to its right
+ * Example Call: Partition(v, 0, 0, v.size()-1)
+ */
 int Partition(vector<int> &v, int pivot, int i, int j)
 {
     if (i == j)
@@ -30,7 +40,7 @@ int Partition(vector<int> &v, int pivot, int i, int j)
         {
             i++;
         }
-        else if (v[j] > v[pivot])
+        else if (v[j] >= v[pivot])
         {
             j--;
         }
@@ -40,6 +50,12 @@ int Partition(vector<int> &v, int pivot, int i, int j)
     return i - 1;
 }
 
+/*
+ * Function Name: QuickSort
+ * Input: Requires a vector, index of pivot element, starting element and ending element
+ * Logic: Divides the array as per partition by pivot and creates a sorted array
+ * Example Call:  QuickSort(v, pivot, 0, v.size() - 1)
+ */
 void QuickSort(vector<int> &v, int pivot, int begin, int end)
 {
     if (end <= begin)
@@ -82,3 +98,6 @@ int main()
 
     return 0;
 }
+/*
+Analysis: The above code runs averagely in O(nlog(n)) and O(n^2) in worst cases
+*/
