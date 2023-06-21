@@ -1,8 +1,9 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-#define VERTICES 99999
+#define VERTICES 100
 
 class Graph
 {
@@ -14,30 +15,15 @@ private:
     };
     int no_of_vertices;
     struct Node **adj_list;
-    int *queue = NULL;
-    int *head = NULL;
-    int *tail = NULL;
+    vector <int> order ;
 
 public:
     bool visited[VERTICES] = {0};
     void make_graph(int no_of_vertices);
     void display();
     void add_edge();
-    void bfs(int v);
+    void dfs(int v);
 };
-
-void Graph ::make_graph(int no_of_vertices)
-{
-    this->no_of_vertices = no_of_vertices;
-    adj_list = new struct Node *[no_of_vertices];
-    queue = new int[no_of_vertices];
-    head = &queue[0];
-    tail = &queue[0];
-    for (int i = 0; i < no_of_vertices; i++)
-    {
-        adj_list[i] = NULL;
-    }
-}
 
 void Graph ::add_edge()
 {
@@ -76,55 +62,47 @@ void Graph ::add_edge()
 }
 // end of function
 
-void Graph ::bfs(int v)
+void Graph ::dfs(int v)
 {
-    *tail = v;
-    tail++;
-    visited[v] = 1 ;
+    visited[v] = 1;
 
-    while (head != tail)
+    struct Node *temp;
+    temp = adj_list[v];
+
+    while (temp != NULL)
     {
-        struct Node *temp;
-        cout << *head << " ";
-        temp = adj_list[*head];
-        head++;
-
-        while (temp != NULL)
+        if (visited[temp->data] == 0)
         {
-            if (visited[temp->data] == 0)
-            {
-                *tail = temp->data;
-                visited[temp->data] = 1 ;
-                tail++;
-            }
-            temp = temp->next;
+            dfs(temp->data);
         }
+        temp = temp->next;
+    }
+    // cout << v ; 
+    order.push_back(v) ;
+}
+
+void Graph ::make_graph(int no_of_vertices)
+{
+    this->no_of_vertices = no_of_vertices;
+    // creating a graph
+    adj_list = new struct Node *[no_of_vertices];
+    for (int i = 0; i < no_of_vertices; i++)
+    {
+        adj_list[i] = NULL;
     }
 }
 
 void Graph ::display()
 {
-    cout << "The adjacency list representation is :-\n";
-    for (int i = 0; i < no_of_vertices; i++)
+    cout << "The topological sorted order is: ";
+    cout << order.size() << endl ;
+    for (int i = 0 ; i < order.size(); i++)
     {
-        cout << i << " : ";
-        if (adj_list[i] != NULL)
-        {
-            struct Node *temp;
-            temp = adj_list[i];
-            while (temp->next != NULL)
-            {
-                cout << temp->data << " -> ";
-                temp = temp->next;
-            }
-            cout << temp->data;
-        }
-        cout << "\n";
+        cout << order[order.size() - 1 - i] << " " ;
     }
+    cout << endl ;
 }
-// end of function
 
-// main function starts here
 int main()
 {
     Graph g;
@@ -135,11 +113,15 @@ int main()
     g.make_graph(no_of_vertices);
     g.add_edge();
 
-    int source;
-    cout << "Enter the source node: ";
-    cin >> source;
+    for (int v = 0; v < no_of_vertices; v++)
+    {
+        if (g.visited[v] == 0)
+        {
+            g.dfs(v);
+        }
+    }
 
-    g.bfs(source);
+    g.display();
 
     return 0;
 }

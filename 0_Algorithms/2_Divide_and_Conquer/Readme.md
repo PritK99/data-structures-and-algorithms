@@ -1,6 +1,5 @@
 ## Divide & Conquer
 
-
 ## <b>Master Theorem</b>
 Master theorem helps us to calculate time complexity for divide and conquer algorithms easily.
 
@@ -8,4 +7,5 @@ Master theorem helps us to calculate time complexity for divide and conquer algo
 
 ## List of problems implemented
 
-* counting_inversions.cpp
+* ```counting_inversions.cpp```
+* ```polynomial_multiplication_naive.cpp```
