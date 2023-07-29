@@ -1,3 +1,6 @@
+/***********************************************************************************
+    @brief        Placing parentheses to obtain maximum value of given arithmetic expression
+************************************************************************************/
 #include <iostream>
 #include <vector>
 
