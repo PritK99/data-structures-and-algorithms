@@ -18,7 +18,10 @@ A tree structure is a way of representing the hierarchical nature of a structure
 
 ## Tree Traversals 
 
-* Pre-ord
+* Preorder
+* Inorder
+* Postorder
+* Levelorder
 
 ## Binary Trees
 A tree is called binary tree if each node has zero child, one child or two children.
@@ -35,12 +38,8 @@ Height of a given tree helps to define the balance parameter. In general, for an
 
 ```|(Height of left subtree) - (Height of right subtree)| <= 1```
 
-## CoC notes
+## Other Notes
 
-
-* Always some sort of traversal
-* Inverting a binary tree
+* Solving tree always involves some sort of traversal with something in Pre or Post section
 * Always mention in comments your base case and rec case
-* Lowest common ancestor
-* In trees, you cant have a parent pointer as such. But then you can make use of recursion, you can return it and treat that as a parent link. This time I am making use of unwinding part
-* For tree, call left, call right, return, get their results and club them up in parent
+* In trees, you cant have a parent pointer as such. But then you can make use of recursion, you can return it and treat that as a parent link. Essentially the recursion is the link between children and parent. For tree, call left, call right, return, get their results and club them up in parent
