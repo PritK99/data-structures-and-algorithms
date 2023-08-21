@@ -1,3 +1,6 @@
+/**************************************
+    @brief        Implementing HashMaps
+***************************************/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -98,3 +101,6 @@ int main()
 
     return 0;
 }
+/*
+Analysis: The above algorithm runs in O(m+n) time complexity for setKey and getKey, where m is cardinality of hash table and n is the cardinality of our universe of objects 
+*/
