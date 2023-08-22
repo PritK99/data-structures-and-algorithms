@@ -40,4 +40,5 @@ Consider U as finite universe of all objects. For eg. in case of phone numbers, 
 
 ### Hashing Strings
 
+![image](https://github.com/PritK99/data-structures-and-algorithms/assets/103832825/63e1da70-6a71-440a-82f7-858a49a9fc0e)
 
