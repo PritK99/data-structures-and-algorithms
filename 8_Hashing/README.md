@@ -29,3 +29,6 @@ One of the possible hash function that satisfies above conditions is to randomly
 
 ### Universal family of hash functions
 
+![image](https://github.com/PritK99/data-structures-and-algorithms/assets/103832825/245210cb-a723-440c-81ce-85fea08e6e4b)
+
+
