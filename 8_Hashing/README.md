@@ -36,3 +36,5 @@ Consider U as finite universe of all objects. For eg. in case of phone numbers, 
 
 ### Hashing Integers
 
+![Uploading image.png…]()
+
