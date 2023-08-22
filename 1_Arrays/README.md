@@ -1,5 +1,7 @@
 # <b>Arrays</b>
 
+Arrays are nothing but continuous area of memory holding elements of same datatype.
+
 ## <b>Dynamic Arrays</b>
 
 The problem with static arrays is that they static. If we are reading a bunch of numbers and we need to put it in an array. But we don't know how many numbers there'll be. we just know there'll be some mark at the end that says we're done with the numbers.
