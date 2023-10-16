@@ -1,8 +1,5 @@
 # The Data Structures and Algorithm Saga 
 
-## Table of contents 
-
-
 ## Introduction
 A data structure is a data organization, management, and storage format that is usually chosen for efficient access to data. In simple words, data structures are just a way to represent data in memory which makes storing, operating on them etc very efficient.
 
