@@ -2,7 +2,7 @@
 Approach 1: sliding a static window of size k over string and checking maximum everytime
 Runtime: 2077ms
 Memory: 10.20MB
-Time Complexity: O(n+k)
+Time Complexity: O(n*k)
 */
 class Solution {
 public:
