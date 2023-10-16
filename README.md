@@ -5,14 +5,132 @@ A data structure is a data organization, management, and storage format that is 
 
 <img src = "https://i.ytimg.com/vi/Qmt0QwzEmh0/maxresdefault.jpg" alt = "Images of Data structure">
 
-Some of the commonly used data structures are :-
-1) Arrays
-2) Stacks 
-3) Queues 
-4) Linked List
-5) Tree
-6) Heaps
-7) Graphs
+## File Structure
+```
+data-structures-and-algorithms/
+├── 01_Arrays
+│   ├── dynamic_array.c
+│   └── README.md
+├── 02_Stack
+│   ├── minimum_element.cpp
+│   ├── Miscellaneous
+│   │   ├── Balancing_brackets.cpp
+│   │   └── README.md
+│   ├── README.md
+│   └── stack.cpp
+├── 03_Queues
+│   ├── Miscellaneous
+│   │   ├── Queue_using_2_stacks.cpp
+│   │   └── readme.md
+│   ├── Queue_using_arrays
+│   │   ├── circular_queue.cpp
+│   │   ├── Queue_using_one_pointer.cpp
+│   │   ├── Queue_using_two_pointer.cpp
+│   │   └── readme.md
+│   ├── Queue_using_Linked_list
+│   │   ├── readme.md
+│   │   └── simple_queue.cpp
+│   └── readme.md
+├── 04_Linked List
+│   ├── linked_list.cpp
+│   └── readme.md
+├── 05_Trees
+│   ├── avl.cpp
+│   ├── binary_search_tree.cpp
+│   ├── README.md
+│   ├── tree_traversal.cpp
+│   └── tree_traversal_iterative.cpp
+├── 06_Priority_Queues_and_Heaps
+│   ├── max_heap.cpp
+│   └── README.md
+├── 07_Disjoint_Sets
+│   ├── disjoint_sets_using_arrays.cpp
+│   └── README.md
+├── 08_Hashing
+│   ├── hashmap.c
+│   └── README.md
+├── 09_Graphs
+│   ├── adj_list.cpp
+│   ├── adj_matrix.cpp
+│   ├── bfs.cpp
+│   ├── dag.cpp
+│   ├── dfs.cpp
+│   ├── kruskals.cpp
+│   ├── README.md
+│   └── topological_sort.cpp
+├── 8_Hashing
+│   ├── integer_hashmap.c
+│   └── naive_hashmap.c
+├── Algorithms
+│   ├── 0_Recursion
+│   │   ├── pallindrome.cpp
+│   │   ├── README.md
+│   │   └── tower_of_hanoi.cpp
+│   ├── 1_Greedy_Algorithms
+│   │   ├── huffman.cpp
+│   │   └── Readme.md
+│   ├── 2_Divide_and_Conquer
+│   │   ├── counting_inversions.cpp
+│   │   ├── polynomial_multiplication_karatsuba.cpp
+│   │   ├── polynomial_multiplication_naive.cpp
+│   │   └── Readme.md
+│   ├── 3_Dynamic_Programming
+│   │   ├── coin_change.cpp
+│   │   ├── knapsack_limited.cpp
+│   │   ├── longest_common_sequence.cpp
+│   │   ├── optimal_alignment.cpp
+│   │   ├── placing_parentheses.cpp
+│   │   ├── Readme.md
+│   │   └── Sliding Window
+│   │       └── README.md
+│   ├── 4_Sorting
+│   │   ├── count_sort.cpp
+│   │   ├── heap_sort.cpp
+│   │   ├── merge_sort.cpp
+│   │   ├── quick_sort.cpp
+│   │   ├── randomized_quick_sort.cpp
+│   │   ├── Readme.md
+│   │   └── selection_sort.cpp
+│   └── 5_Miscellaneous
+│       ├── fibonacci.cpp
+│       ├── kadanes.cpp
+│       ├── ministry.c
+│       └── README.md
+├── assets
+│   ├── aggregate_amortized.png
+│   ├── amortized_analysis.png
+│   ├── bankers_amortized.png
+│   ├── heap_example.png
+│   ├── heap_properties.png
+│   ├── output_10_0.png
+│   ├── output_12_0.png
+│   ├── output_15_0.png
+│   ├── output_18_0.png
+│   ├── output_20_0.png
+│   ├── output_22_0.png
+│   ├── output_24_0.png
+│   ├── output_26_0.png
+│   ├── output_28_0.png
+│   ├── output_30_0.png
+│   ├── output_32_0.png
+│   ├── output_34_0.png
+│   ├── output_36_0.png
+│   ├── output_38_0.png
+│   ├── output_5_0.png
+│   ├── output_7_0.png
+│   ├── physicist_amortized_1.png
+│   ├── physicist_amortized_2.png
+│   ├── physicist_amortized_3.png
+│   └── physicist_amortized_4.png
+├── bigO.md
+├── leetcode
+│   ├── 1456 Maximum Number of Vowels in a Substring of Given Length.cpp
+│   └── README.md
+├── LICENSE
+└── README.md
+
+24 directories, 96 files
+```
 
 ## Time complexity 
 
