@@ -48,8 +48,8 @@ public:
 
 /*
 Approach 3: Using array indices itself to track if the number has appeared before.
-Runtime: 48ms
-Memory: 33.87MB
+Runtime: 36ms
+Memory: 33.85MB
 Time Complexity: O(n)
 Space Complexity: 0(1)
 */
@@ -60,27 +60,13 @@ public:
         vector <int> ans;
         for (int i = 0; i<n; i++)
         {
-            if (nums[i] > 0)
+            if(nums[abs(nums[i])-1] < 0)
             {
-                if(nums[nums[i]-1] < 0)
-                {
-                    ans.push_back(nums[i]);
-                }
-                else
-                {
-                    nums[nums[i]-1] = -nums[nums[i]-1];
-                }
+                ans.push_back(abs(nums[i]));
             }
             else
             {
-                if(nums[(-nums[i])-1] < 0)
-                {
-                    ans.push_back(-nums[i]);
-                }
-                else
-                {
-                    nums[(-nums[i])-1] = -nums[(-nums[i])-1];
-                }
+                nums[abs(nums[i])-1] = -nums[abs(nums[i])-1];
             }
         }
         return ans;
