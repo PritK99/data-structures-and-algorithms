@@ -22,7 +22,77 @@ public:
 };
 
 /*
-Approach 2: Using flyod cycle detection algorithm using fast and slow pointers
+Approach 2: Linear search maintaing count for all numbers in [1,n]
+Runtime: TLE
+Time Complexity: O(n^2)
+*/
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        
+        for (int j = 1; j <= n; j++)
+        {
+            int count = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (j >= nums[i])
+                {
+                    count++;
+                }
+            }
+            if (count > j)
+            {
+                return j;
+            }
+        }
+        return 0;
+    }
+};
+
+/*
+Approach 3: Using binary search and maintaining count
+Runtime: 122ms
+Memory: 61.56MB
+Time Complexity: O(nlog(n))
+*/
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        int start = 1;
+        int end = n;
+        int mid = 0;
+        int duplicate = -1;
+        
+        while (end >= start)
+        {
+            mid = (end + start)/2;
+            int count = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (mid >= nums[i])
+                {
+                    count++;
+                }
+            }
+            if (count > mid)
+            {
+                duplicate = mid;
+                end = mid-1;
+            }
+            else
+            {
+                start = mid+1;
+            }
+        }
+        
+        return duplicate;
+    }
+};
+
+/*
+Approach 4: Using flyod cycle detection algorithm using fast and slow pointers
 Runtime: 81ms
 Memory: 61.64MB
 Time Complexity: O(n)
