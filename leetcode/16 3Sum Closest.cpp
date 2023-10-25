@@ -38,7 +38,7 @@ public:
 };
 
 /*
-Approach 1: Checking all possible combinations after sorting with better pruning strategies
+Approach 2: Checking all possible combinations after sorting with better pruning strategies
 Runtime: 4ms
 Memory: 10.45MB
 Time Complexity: O(nlog(n) + n^2) or O(n^2)     //Sorting + linear search for all elements
