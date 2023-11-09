@@ -33,4 +33,4 @@ Two ways to traverse a graph are :-
 1) DFS
 2) BFS
 
-Every problem in graph is simply a modification of DFS and BFS algorithm.
+Every problem of graph is simply a modification of DFS and BFS algorithm. Whenever we try to solve graph problems, we need to think to traversal which fits the best for problem statement and the modifications which we need to make to the traversal. For eg. maintaining a simple counter during dfs previsit and postvisit allows us to count number of connected components in graph.
