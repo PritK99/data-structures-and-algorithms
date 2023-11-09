@@ -68,7 +68,7 @@ void Graph ::display()
 // end of function
 
 /*
-This function iterates over all the possible edges and asks user if they want the edge to exsist or not
+This function iterates over all the possible edges and asks user if they want the edge to exist or not
 parameters : void
 Returns : void
 */

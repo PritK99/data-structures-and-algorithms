@@ -26,6 +26,11 @@ public:
     void bfs(int v);
 };
 
+/*
+This function is used to create a graph
+parameters : no_of_vertices
+Returns : void
+*/
 void Graph ::make_graph(int no_of_vertices)
 {
     this->no_of_vertices = no_of_vertices;
@@ -39,6 +44,11 @@ void Graph ::make_graph(int no_of_vertices)
     }
 }
 
+/*
+This function iterates over all the possible edges and asks user if they want the edge to exist or not
+parameters : void
+Returns : void
+*/
 void Graph ::add_edge()
 {
     for (int i = 0; i < no_of_vertices; i++)
@@ -76,6 +86,11 @@ void Graph ::add_edge()
 }
 // end of function
 
+/*
+Performs BFS traversal
+parameters : vertex on which bfs is called
+Returns : void
+*/
 void Graph ::bfs(int v)
 {
     *tail = v;
@@ -102,6 +117,11 @@ void Graph ::bfs(int v)
     }
 }
 
+/*
+This function is used to display the graph
+parameters : void
+Returns : void
+*/
 void Graph ::display()
 {
     cout << "The adjacency list representation is :-\n";

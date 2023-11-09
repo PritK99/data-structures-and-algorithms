@@ -23,6 +23,11 @@ public:
     void dfs(int v);
 };
 
+/*
+This function iterates over all the possible edges and asks user if they want the edge to exist or not
+parameters : void
+Returns : void
+*/
 void Graph ::add_edge()
 {
     for (int i = 0; i < no_of_vertices; i++)
@@ -60,6 +65,11 @@ void Graph ::add_edge()
 }
 // end of function
 
+/*
+Performs DFS traversal
+parameters : vertex on which dfs is called
+Returns : void
+*/
 void Graph ::dfs(int v)
 {
     visited[v] = 1;
@@ -79,6 +89,11 @@ void Graph ::dfs(int v)
 }
 // end of function
 
+/*
+This function is used to create a graph
+parameters : no_of_vertices
+Returns : void
+*/
 void Graph ::make_graph(int no_of_vertices)
 {
     this->no_of_vertices = no_of_vertices;
@@ -91,6 +106,11 @@ void Graph ::make_graph(int no_of_vertices)
 }
 // end of function
 
+/*
+This function is used to display the graph
+parameters : void
+Returns : void
+*/
 void Graph ::display()
 {
     cout << "The adjacency list representation is :-\n";

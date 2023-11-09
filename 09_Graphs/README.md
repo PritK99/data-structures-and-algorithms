@@ -3,17 +3,13 @@
 
 # Introduction
 
-A Graph is a data structure which represents objects and connections between them. A graph is a pair (V, E), where V is a set of nodes, called vertices (which represent objects), and E is a collection of pairs of vertices, called edges (hich represent connections).
+A Graph is a data structure which represents connections between objects. It is a pair (V, E), where V is a set of nodes, called vertices (which represent objects), and E is a collection of pairs of vertices, called edges (which represent connections).
 
-For example, the Internet often can be thought of as a graph, where you've got various web pages and theyre connected to each other by links. 
-
-![image](https://user-images.githubusercontent.com/103832825/209884707-4b8529f3-0a38-421b-aa07-4b65aacdc4e1.png)
+For example, the Internet often can be thought of as a graph, where web pages are connected to each other by links. 
 
 Another example is maps, you can think of maps as a graph, sort of where you have intersections that are connected by roads. For example, we might be interested in questions like: “What’s the fastest way to go from home to college?” or “What is the cheapest way to go from home to college”. Graphs are data structures used for solving these kinds of problems.
 
-<img src = "https://www.mapsofindia.com/maps/gujarat/railways/bharuch_railway.jpg" alt = "Image of a city map">
-
-# Representaion
+# Graph Representation
 Three ways to represent a graph are :-
 
 ## 1) Edge list
@@ -29,4 +25,12 @@ In this representation all the vertices connected to a vertex v are listed on A 
 
 Adjacency list are useful to represent sparse graphs.
 
-![image](https://user-images.githubusercontent.com/103832825/209886437-a8edaa8b-4709-44cc-b5a5-0e2c300f8b4c.png)
+<img src="../assets/Graph_Representations.png" alt="Graph Representation">
+
+# Graph Traversals
+Two ways to traverse a graph are :-
+
+1) DFS
+2) BFS
+
+Every problem in graph is simply a modification of DFS and BFS algorithm.
