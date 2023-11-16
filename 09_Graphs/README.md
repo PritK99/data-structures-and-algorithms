@@ -34,3 +34,15 @@ Two ways to traverse a graph are :-
 2) BFS
 
 Every problem of graph is simply a modification of DFS and BFS algorithm. Whenever we try to solve graph problems, we need to think to traversal which fits the best for problem statement and the modifications which we need to make to the traversal. For eg. maintaining a simple counter during dfs previsit and postvisit allows us to count number of connected components in graph.
+
+# Dijkstra's Algorithm
+
+Dijkstra's Algorithm is essentially BFS + Heuristics. It allows us to calculate shortest path from a given source node to all other nodes in the graph. 
+
+<img src="../assets/djikstras intuition.png" alt="Djikstra's Intution">
+
+Consider we are at a node A, which is connected to node B and C by weights 3 and 5 respectively. Here, we can not be sure that distance between A and C i.e. 5, is the shortest one between A and C. This is beacuse, chances are B and C might be connected by weight 1, which makes shortest path between A and C as A -> B -> C of length 4. However, we can be sure, that the distance between A and B is the shortest possible distance between A and B. This is because there is no other possibility which can give path shorter than A -> B directly. Here A -> C -> B will definitely be more expensive since A -> C itself is more expensive than A -> B.
+
+A naive approach can be to keep on relaxing edges in a while loop till there comes a state where no edge is relaxed in the entire loop. However, the above intuition allows us to relax edges in certain order. 
+
+The time complexity of Dijkstra's algorithm depends on the underlying data structure. If our priority queue is based on heap, the Time Complexity is ```O((|V| + |E|)log(|V|))```. On the other hand, if our priority queue is array bases, it takes ```O(|V|^2)```. It is important to note that in case of dense graphs, array implementation of Priority Queue works better than Heap implementation. Thus, the choice of data structure depends on the sparsity of graph.
