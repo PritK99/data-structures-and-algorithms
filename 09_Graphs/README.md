@@ -46,3 +46,19 @@ Consider we are at a node A, which is connected to node B and C by weights 3 and
 A naive approach can be to keep on relaxing edges in a while loop till there comes a state where no edge is relaxed in the entire loop. However, the above intuition allows us to relax edges in certain order. 
 
 The time complexity of Dijkstra's algorithm depends on the underlying data structure. If our priority queue is based on heap, the Time Complexity is ```O((|V| + |E|)log(|V|))```. On the other hand, if our priority queue is array bases, it takes ```O(|V|^2)```. It is important to note that in case of dense graphs, array implementation of Priority Queue works better than Heap implementation. Thus, the choice of data structure depends on the sparsity of graph.
+
+# Bellman-Ford Algorithm
+
+The intuition which we had for dijkstra's algorithm fails when we take negative edges in account. Because now for the above example, A -> C -> B can be cheaper than A -> B, if C -> B were to become negative. Hence for graphs with negative weights, we use Bellman Ford Algorithm.
+
+The idea behind bellman ford algorithm is a naive version of Dijkstra's algorithm. It doesnt follow any sense of heuristic to relax edges. We keep on relaxing all the edges in the graph for |V|-1 times. Thus the time complexity is ```O(|V||E|)```. However, this algorithm currently works only for graphs with no negative cycles. In presence of negative cycles, the distances can be relaxed infinitely. Thus we slightly modify the code to accommodate negative distances as well.
+
+# Minimum Spanning Tree
+
+A minimum spanning tree (MST) of a connected, undirected graph G(V, E) is a subset of the edges E' that forms a tree (i.e., it is connected and acyclic) and spans all the vertices in V. Furthermore, the sum of the weights of the edges in the minimum spanning tree is minimized.
+
+# Kruskal Algorithm
+
+The core idea is indeed to add edges to the growing minimum spanning tree in increasing order of their weights, as long as adding the edge does not form a cycle.
+
+# Prims Algorithm
