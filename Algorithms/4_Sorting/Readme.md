@@ -11,6 +11,7 @@
     * Count Sort
     * Quick Sort
     * Heap Sort
+    * Comb Sort
 * Conclusion
 
 ## Sorting Algorithms
@@ -46,6 +47,15 @@ In order to implement Heap sort, we can simply convert the given array into a <b
 We can create a new priority queue and store elements in the new array one by one, maintaining the heap property. However this requires extra space. Thus, we can rather convert the given array into a priority queue itself, avoiding use of extra space. 
 
 Heap sort works in O(nlog(n)) and is a comparison based algorithm.
+
+### <b>6) Comb Sort</b>
+
+
+ChatGPT
+Comb Sort is like a smarter version of Bubble Sort. In Bubble Sort, we always check and swap neighboring elements. So, if a small number is at the end, it takes a long time to move to the front.
+
+In Comb Sort, we introduce a gap between elements we compare. At first, this gap is quite large, which lets us compare elements that are far apart. After each pass through the list, we shrink this gap by a factor (usually 1.3). Eventually, the gap becomes 1, and Comb Sort behaves just like Bubble Sort, checking only adjacent elements. While Comb Sort is usually faster than Bubble Sort on average, worst case remains O(n^2).
+
 ## <b>Conclusion</b>
 
 The time complexities of a few sorting algorithms are given below
