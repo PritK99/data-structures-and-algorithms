@@ -1,7 +1,12 @@
-# The Data Structures and Algorithm Saga 
+# Data Structures and Algorithms ToolBox
 
 ## Introduction
-A data structure is a data organization, management, and storage format that is usually chosen for efficient access to data. In simple words, data structures are just a way to represent data in memory which makes storing, operating on them etc very efficient.
+
+Data Structures are ways to organize and store data in memory, making it easier to manage and use. Each type has its own strengths and weaknesses, depending on the task. Choosing the right data structure helps improve performance, whether we are searching, sorting, or performing other tasks.
+
+Algorithms are step-by-step methods used to solve problems. They define the sequence of actions needed and directly impact how fast and efficient an operation is. The right algorithm can improve speed, reduce resource use, and make a system more scalable.
+
+Data structures and algorithms are central to optimization in computer science. Understanding both is essential for writing optimized code and improving performance.
 
 <img src = "https://i.ytimg.com/vi/Qmt0QwzEmh0/maxresdefault.jpg" alt = "Images of Data structure">
 
@@ -97,31 +102,6 @@ data-structures-and-algorithms/
 │       ├── ministry.c
 │       └── README.md
 ├── assets
-│   ├── aggregate_amortized.png
-│   ├── amortized_analysis.png
-│   ├── bankers_amortized.png
-│   ├── heap_example.png
-│   ├── heap_properties.png
-│   ├── output_10_0.png
-│   ├── output_12_0.png
-│   ├── output_15_0.png
-│   ├── output_18_0.png
-│   ├── output_20_0.png
-│   ├── output_22_0.png
-│   ├── output_24_0.png
-│   ├── output_26_0.png
-│   ├── output_28_0.png
-│   ├── output_30_0.png
-│   ├── output_32_0.png
-│   ├── output_34_0.png
-│   ├── output_36_0.png
-│   ├── output_38_0.png
-│   ├── output_5_0.png
-│   ├── output_7_0.png
-│   ├── physicist_amortized_1.png
-│   ├── physicist_amortized_2.png
-│   ├── physicist_amortized_3.png
-│   └── physicist_amortized_4.png
 ├── bigO.md
 ├── leetcode
 │   ├── 1456 Maximum Number of Vowels in a Substring of Given Length.cpp
@@ -129,7 +109,6 @@ data-structures-and-algorithms/
 ├── LICENSE
 └── README.md
 
-24 directories, 96 files
 ```
 
 ## Time complexity 
