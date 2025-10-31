@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Arrays represent a contiguous area of memory holding elements of same datatype.
+An array is a contiguous block of memory that holds elements of the same data type and is accessed using indices.
 
 ## <b>Dynamic Arrays</b>
 
-The problem with static arrays is that they static. If we are reading a bunch of numbers and we need to put it in an array. But we don't know how many numbers there'll be. we just know there'll be some mark at the end that says we're done with the numbers.
+The problem with static arrays is that their size in memory is fixed. For example, if we're reading a sequence of numbers but don't know in advance how many there will be, we can't define a fixed-size array. We only know that some marker will indicate the end of the input.
 
-So we use Dynamic arrays or Resizable arrays. Vectors are an example of dynamic arrays in `c++`
+So we use Dynamic arrays or Resizable arrays. Vectors are an example of dynamic arrays in `C++`.
 
 ## <b>Amortized Analysis</b>
 
